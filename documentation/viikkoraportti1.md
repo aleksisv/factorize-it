@@ -1,4 +1,4 @@
-#Viikkoraportti 1
+### Viikkoraportti 1
 
 Kurssin aloitusluennolla, joka järjestettiin keskiviikkona 15.3.2017, sain ajatuksen lukuteoreettisen projektin tekemisestä. Halusin tehdä ohjelman, jonka avulla käyttäjä voi tarkistella, onko annettu luku alkuluku vai ei, ja kieltävässä tapauksessa jakaa luvun tekijöihinsä.
 
