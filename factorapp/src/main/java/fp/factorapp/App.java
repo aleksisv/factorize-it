@@ -2,15 +2,16 @@
 package fp.factorapp;
 
 import fp.utils.PrimeTools;
+import java.math.BigDecimal;
 
 public class App {
 
     public static void main(String[] args) {
         PrimeTools p = new PrimeTools();
+        long l = 102300123L;
         
-        boolean b = p.aksPrimalityTest(100);
-        System.out.println(Math.pow(122, 11));
-        System.out.println(b);
+        System.out.println(p.multiplicativeOrd(37, 60));
+        
     }
     
 }
