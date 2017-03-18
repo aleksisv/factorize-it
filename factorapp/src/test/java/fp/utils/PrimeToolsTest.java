@@ -38,4 +38,11 @@ public class PrimeToolsTest {
         assertTrue(p.primalityTest(13));
         assertTrue(p.primalityTest(2));
      }
+     @Test
+     public void multiplicativeOrderWorks1() {
+        PrimeTools p = new PrimeTools();
+        assertEquals(p.multiplicativeOrd(7, 4), 3);
+        assertEquals(p.multiplicativeOrd(122, 11), 4);
+        assertEquals(p.multiplicativeOrd(37, 60), 12);
+     }
 }

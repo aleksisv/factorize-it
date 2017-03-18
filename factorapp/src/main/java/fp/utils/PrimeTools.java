@@ -50,13 +50,23 @@ public class PrimeTools {
     /*
     Needed for the AKS Primality test to work.
     */
-    public int multiplicativeOrd(int n, int r) {
+    public int multiplicativeOrd(int n, int a) {
         int i = 1;
         while(true) {
-            if(Math.round(Math.pow(n, i)) % r == 1) {
+            if(Math.round(Math.pow(a, i)) % n == 1) {
                 return i;
+            }
+            
+            if(i > 1000000) {
+                break;
             }
             i++;
         }
+        return i;
+    }
+    
+    public int modulo(int n, int mod) {
+        
+        return 0;
     }
 }

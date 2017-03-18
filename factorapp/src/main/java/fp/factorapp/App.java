@@ -9,7 +9,7 @@ public class App {
         PrimeTools p = new PrimeTools();
         
         boolean b = p.aksPrimalityTest(100);
-        
+        System.out.println(Math.pow(122, 11));
         System.out.println(b);
     }
     

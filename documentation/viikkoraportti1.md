@@ -8,5 +8,6 @@ Torstaina ja perjantaina pistin projektin varsinaisesti käyntiin. Loin reposito
 
 Suurimman osan ajasta olen tällä viikolla käyttänyt lukuteoriaan perehtymiseen. Tähän liittyen olen lukenut kirjoja, jotka käsittelevät algoritmista lukuteoriaa sekä alkuluku- ja tekijöihinjakoalgoritmeja.
 
+Tällä viikolla ensimmäinen varsinainen haaste, johon olen törmännyt, on koskenut modulaariaritmetiikkaa ja sitä, kuinka voisin käsitellä suurten potenssien jakojäännöksiä helposti ja yleisellä tasolla.
 
 Käytin viikon aikana työhön suunnilleen 9 tuntia.
