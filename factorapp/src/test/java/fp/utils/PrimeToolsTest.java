@@ -67,4 +67,11 @@ public class PrimeToolsTest {
          assertTrue(p.areCoprime(4, 9));
          assertFalse(p.areCoprime(46, 2323));
      }
+     
+     @Test
+     public void isPerfectPowerWorks() {
+         PrimeTools p = new PrimeTools();
+         assertTrue(p.isPerfectPower(8));
+         
+     }
 }

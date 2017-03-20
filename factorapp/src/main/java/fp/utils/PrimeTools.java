@@ -19,34 +19,14 @@ public class PrimeTools {
     An implementation of Agrawal-Kayal-Saxena primality test.
     */
     public boolean aksPrimalityTest(long n) {
+        if(isPerfectPower(n)) {
+            return false;
+        } 
         
         /*
-        We check if n is a perfect power.
+        TO-DO
         */
-        int a = 1;
-        int b = 1;
-        while(true) {
-            b=1;
-            if(Math.pow(a, b) > n) {
-                break;
-            }
-            while(true) {
-                if (Math.abs((Math.pow(a, b) - n)) < 0.5) {
-                    return false;
-                }
-                else if(Math.pow(a, b) > n) {
-                    break;
-                } else if (b > n) {
-                    break;
-                }
-                b++;
-            }
-            a++;
-        }
-        
         return true;
-        
-        
     }
     
     /*
@@ -63,6 +43,33 @@ public class PrimeTools {
         }
         
     }
+    
+    public boolean isPerfectPower(long n) {
+        if(n == 1) {
+            return true; 
+        }
+        
+        for (int i = 2; i <= Math.floor(Math.sqrt(n)); i++) {
+            double p = Math.log10(n)/Math.log10(i);
+            if(p == Math.floor(p) && p > 1) {
+                return true;
+            }
+        }
+        
+        return false;   
+    }
+    /*Daniel Bernstein's algorithm for testing perfect powers.*/
+    public boolean isPerfectPowerFast(long n) {
+        long b = 1;
+        
+        while(true) {
+            break;
+        }
+        
+        return false;   
+    }
+    
+    
     
     public long modularExponentiation(long n, long exponent, long mod) {
         if(mod == 1) {
