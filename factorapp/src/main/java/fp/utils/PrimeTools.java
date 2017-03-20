@@ -43,6 +43,7 @@ public class PrimeTools {
             }
             a++;
         }
+        
         return true;
         
         
@@ -74,5 +75,24 @@ public class PrimeTools {
         }
         
         return c;
+    }
+    
+    public long gcd(long a, long b) {
+        while(a != b) {
+            if(a > b) {
+                a -= b;
+            } else {
+                b -= a;
+            }
+        }
+        return a;
+    }
+    
+    public boolean areCoprime(long a, long b) {
+        if (gcd(a, b) == 1) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

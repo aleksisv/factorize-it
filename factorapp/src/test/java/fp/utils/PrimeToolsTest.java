@@ -45,4 +45,26 @@ public class PrimeToolsTest {
         assertEquals(p.multiplicativeOrd(122, 11), 4);
         assertEquals(p.multiplicativeOrd(37, 60), 12);
      }
+     
+     @Test
+     public void gcdWorks1() {
+         PrimeTools p = new PrimeTools();
+         assertEquals(p.gcd(2, 3), 1);
+         for (int i = 1; i < 10; i++) {
+             for (int j = 1; j < 10; j++) {
+                 assertEquals(p.gcd(i, j), p.gcd(j, i));
+             }
+         }
+         assertEquals(p.gcd(123512, 13245), 1);
+         assertEquals(p.gcd(14000, 13245022), 14);
+     }
+     
+     @Test
+     public void areCoprimeWorks() {
+         PrimeTools p = new PrimeTools();
+         assertTrue(p.areCoprime(23, 45));
+         assertFalse(p.areCoprime(23, 46));
+         assertTrue(p.areCoprime(4, 9));
+         assertFalse(p.areCoprime(46, 2323));
+     }
 }
