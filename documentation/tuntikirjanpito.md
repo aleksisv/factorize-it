@@ -5,3 +5,5 @@ Päivä | Tunnit | Kuvaus
 16.3.2017 | 3h | Repositorion luominen ja projektin saattaminen aluilleen.
 17.3.2017 | 2h | Ohjelmointia.
 18.3.2017 | 2h | Ohjelmointia.
+19.3.2017 | - | Välipäivä.
+20.3.2017 | 2h | Ohjelmointia ja teorian opiskelua.
