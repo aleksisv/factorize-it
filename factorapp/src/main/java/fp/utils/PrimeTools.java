@@ -19,7 +19,7 @@ public class PrimeTools {
     An implementation of Agrawal-Kayal-Saxena primality test.
     */
     public boolean aksPrimalityTest(long n) {
-        if(isPerfectPower(n)) {
+        if (isPerfectPower(n)) {
             return false;
         } 
         
