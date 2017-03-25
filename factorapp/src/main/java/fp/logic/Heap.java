@@ -1,6 +1,8 @@
-
 package fp.logic;
 
+/**
+ * TO-DO implementation of Heap-structure, in case we need one.
+ */
 public class Heap {
     private int i;
 
@@ -11,9 +13,5 @@ public class Heap {
     public int getI() {
         return i;
     }
-    
-    
-    
-    
-    
+
 }
