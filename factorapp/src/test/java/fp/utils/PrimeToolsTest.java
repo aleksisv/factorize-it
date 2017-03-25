@@ -75,6 +75,17 @@ public class PrimeToolsTest {
      public void isPerfectPowerWorks() {
          PrimeTools p = new PrimeTools();
          assertTrue(p.isPerfectPower(8));
+         assertTrue(p.isPerfectPower(1));
+         assertFalse(p.isPerfectPower(3));
+     }
+     
+     @Test
+     public void modularExponentiationWorks1() {
+         PrimeTools p = new PrimeTools();
+         assertEquals(p.modularExponentiation(2, 3, 7), 1);
+         assertEquals(p.modularExponentiation(22, 13, 1), 0);
+         assertEquals(p.modularExponentiation(4, 2, 4), 0);
+         assertEquals(p.modularExponentiation(2, 4, 6), 4);
          
      }
 }
