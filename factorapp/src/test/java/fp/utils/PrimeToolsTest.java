@@ -77,6 +77,20 @@ public class PrimeToolsTest {
          assertTrue(p.isPerfectPower(8));
          assertTrue(p.isPerfectPower(1));
          assertFalse(p.isPerfectPower(3));
+         assertTrue(p.isPerfectPower(15625));
+     }
+     
+     @Test
+     public void isPerfectPowerWorksForLarge1() {
+         PrimeTools p = new PrimeTools();
+         assertTrue(p.isPerfectPower(46656));
+         assertFalse(p.isPerfectPower(46655));
+         assertTrue(p.isPerfectPower(823543));
+         assertFalse(p.isPerfectPower(823542));
+         assertTrue(p.isPerfectPower(16777216));
+         assertFalse(p.isPerfectPower(16777215));
+         assertTrue(p.isPerfectPower(134217728));
+         assertFalse(p.isPerfectPower(134217727));
      }
      
      @Test
