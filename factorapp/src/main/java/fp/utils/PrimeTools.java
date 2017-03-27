@@ -4,8 +4,10 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.math.MathContext;
 import java.math.RoundingMode;
+
 /**
- * This class contain the necessary tools for testing whether some integer is prime or not.
+ * This class contain the necessary tools for testing whether some integer is
+ * prime or not.
  */
 public class PrimeTools {
 
@@ -36,36 +38,36 @@ public class PrimeTools {
         if (isPerfectPower(n)) {
             return false;
         }
-        
+
         long r = findTheSmallestR(n);
-        
+
         long upperLimit = Math.min(n, r);
-        
+
         for (long i = 2; i <= upperLimit; i++) {
-            if(n % i == 0) {
+            if (n % i == 0) {
                 return false;
             }
         }
-        
-        if(n <= r) {
+
+        if (n <= r) {
             return true;
         }
-        
+
         /*
         TO-DO
          */
         return true;
     }
-    
+
     public long findTheSmallestR(long n) {
         int r = 1;
-        while(true) {
+        while (true) {
             r++;
-            if(!areCoprime(n, r)) {
+            if (!areCoprime(n, r)) {
                 continue;
             }
             System.out.println(multiplicativeOrd(r, n));
-            if(multiplicativeOrd(r, n) > Math.pow(Math.log(n), 2)) {
+            if (multiplicativeOrd(r, n) > Math.pow(Math.log(n), 2)) {
                 break;
             }
         }
@@ -104,11 +106,11 @@ public class PrimeTools {
         }
 
         for (int i = 2; i < Math.log(n) + 1; i++) {
-            double power = (double) 1 /(double) i;
+            double power = (double) 1 / (double) i;
             double a = Math.pow(n, power);
             double diff = Math.abs(a - Math.round(a));
             System.out.println(diff);
-            if(diff < 0.000000001) {
+            if (diff < 0.000000001) {
                 return true;
             }
         }
