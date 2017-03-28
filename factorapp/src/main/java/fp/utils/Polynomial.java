@@ -18,6 +18,7 @@ public class Polynomial {
         }
 
         this.degree = determineDegree();
+        this.sanitizePolynomial();
     }
 
     public Polynomial(long[] coefficients, long degree) {
@@ -59,6 +60,7 @@ public class Polynomial {
         long[] initialReversed = reverse(initialArray);
         
         Polynomial newPoly = new Polynomial(initialReversed);
+        newPoly.sanitizePolynomial();
         return newPoly;
     }
 
@@ -69,6 +71,7 @@ public class Polynomial {
         }
 
         Polynomial newPoly = new Polynomial(initialArray);
+        newPoly.sanitizePolynomial();
         return newPoly;
     }
 
@@ -80,6 +83,36 @@ public class Polynomial {
             }
         }
         return degree;
+    }
+    
+    private void sanitizePolynomial() {
+        if(this.coefficients[this.coefficients.length - 1] == 0) {
+            long[] newArray = new long[this.coefficients.length - 1];
+            for (int i = 0; i < newArray.length; i++) {
+                newArray[i] = this.coefficients[i];
+            }
+            this.setCoefficients(newArray);
+        }
+        
+    }
+    
+    public Polynomial times(Polynomial p) {
+        long initialArray[] = new long[p.coefficients.length + this.coefficients.length];
+        
+        long[] thisReversed = reverse(this.coefficients);
+        long[] thatReversed = reverse(p.coefficients);
+        
+        for (int i = 0; i < thisReversed.length; i++) {
+            for (int j = 0; j < thatReversed.length; j++) {
+                initialArray[i+j] += (this.coefficients[i]*p.coefficients[j]);
+                
+            }
+        }
+        
+        long[] initialReversed = reverse(initialArray);
+        Polynomial n = new Polynomial(initialReversed);
+        n.sanitizePolynomial();
+        return n;
     }
 
     public long evaluateAtX(long x) {
@@ -118,5 +151,11 @@ public class Polynomial {
         }
         return s.toString();
     }
+
+    public void setCoefficients(long[] coefficients) {
+        this.coefficients = coefficients;
+    }
+    
+    
 
 }
