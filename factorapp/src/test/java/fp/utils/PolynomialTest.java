@@ -57,6 +57,14 @@ public class PolynomialTest {
         p = new Polynomial(0, 3, 3, 2);
         assertEquals(p.getDegree(), 2);
     }
+    
+    @Test
+    public void addingPolynomialWorks1() {
+        Polynomial p1 = new Polynomial(2, 3);
+        Polynomial p2 = new Polynomial(2, 3, 4);
+        Polynomial pAdd = p1.addPolynomial(p2);
+        assertEquals(pAdd.toString(), "2x^2 + 5x^1 + 7");
+    }
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
     //
