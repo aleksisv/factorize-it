@@ -12,11 +12,12 @@ public class App {
 
     public static void main(String[] args) {
         PrimeTools p = new PrimeTools();
-        Polynomial poly = new Polynomial(2, 3, 4);
+        Polynomial poly = new Polynomial(2, 3, 4, 4, 2);
         System.out.println(poly);
         System.out.println(poly.evaluateAtX(4));
         long[] coefs = poly.getCoefficients();
-        System.out.println(Arrays.toString(coefs));
+        Polynomial poly2 = poly.addPolynomial(poly);
+        System.out.println(poly2);
     }
 
 }

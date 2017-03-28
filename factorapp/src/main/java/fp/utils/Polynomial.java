@@ -6,6 +6,9 @@ public class Polynomial {
     private long degree;
 
     public Polynomial() {
+        this.coefficients = new long[1];
+        this.coefficients[0] = 0;
+        this.degree = determineDegree();
     }
     
     public Polynomial(long... coeffs) {
@@ -26,7 +29,22 @@ public class Polynomial {
     public long[] getCoefficients() {
         return coefficients;
     }
-
+    
+    public Polynomial addPolynomial(Polynomial p) {
+        int max = 0;
+        max = Math.max(this.getCoefficients().length, p.getCoefficients().length);
+        long initialArray[] = new long[max];
+        for (int i = 0; i < initialArray.length; i++) {
+            initialArray[initialArray.length - i - 1] = this.coefficients[i] + p.coefficients[i];
+        }
+        
+        
+        Polynomial newPoly = new Polynomial(initialArray);
+        return newPoly;
+    }
+    
+    
+    
     private long determineDegree() {
         long degree = 0;
         for (int i = 0; i < this.coefficients.length; i++) {
@@ -45,6 +63,11 @@ public class Polynomial {
         
         return value;
     }
+
+    public long getDegree() {
+        return degree;
+    }
+    
     
     
 
@@ -53,7 +76,9 @@ public class Polynomial {
         StringBuilder s = new StringBuilder();
         for (int i = this.coefficients.length-1; i >= 0; i--) {
             if(i == 0) {
-                s.append(" + ");
+                if(this.coefficients.length != 1){
+                    s.append(" + ");
+                }
                 s.append(this.coefficients[i]);
                 
             } else if (i == this.coefficients.length-1) {
