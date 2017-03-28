@@ -84,4 +84,10 @@ public class PolynomialTest {
         assertEquals(p2.getCoefficients()[4], 66);
         
     }
+    
+    @Test
+    public void evaluationWorks1() {
+        Polynomial p1 = new Polynomial(20, -3, 2, 3);
+        assertEquals(p1.evaluateAtX(3), 522);
+    }
 }

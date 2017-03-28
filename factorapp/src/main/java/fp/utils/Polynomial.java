@@ -21,11 +21,6 @@ public class Polynomial {
         this.sanitizePolynomial();
     }
 
-    public Polynomial(long[] coefficients, long degree) {
-        this.coefficients = coefficients;
-        this.degree = degree;
-    }
-
     public long[] getCoefficients() {
         return coefficients;
     }
