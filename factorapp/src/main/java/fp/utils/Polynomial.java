@@ -114,6 +114,15 @@ public class Polynomial {
         n.sanitizePolynomial();
         return n;
     }
+    
+    public Polynomial exponentiation(long exponent) {
+        Polynomial newpoly = new Polynomial(1);
+        while(exponent>0) {
+            newpoly = newpoly.times(this);
+            exponent--;
+        }
+        return newpoly;
+    }
 
     public long evaluateAtX(long x) {
         long value = 0;
