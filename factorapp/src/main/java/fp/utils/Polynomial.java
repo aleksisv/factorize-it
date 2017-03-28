@@ -28,22 +28,23 @@ public class Polynomial {
     public long[] getCoefficients() {
         return coefficients;
     }
+    
+    private long[] reverse(long[] arr) {
+        long[] reversed = new long[arr.length];
+        for (int i = 0; i < arr.length; i++) {
+            reversed[i] = arr[arr.length - i - 1];
+        }
+        return reversed;
+    }
+    
 
     public Polynomial addPolynomial(Polynomial p) {
         
         int max = Math.max(this.getCoefficients().length, p.getCoefficients().length);
         long initialArray[] = new long[max];
         
-        long[] thisReversed = new long[this.coefficients.length];
-        long[] thatReversed = new long[p.coefficients.length];
-        
-        for (int i = 0; i < this.coefficients.length; i++) {
-            thisReversed[i] = this.coefficients[this.coefficients.length - i - 1];
-        }
-        
-        for (int i = 0; i < p.coefficients.length; i++) {
-            thatReversed[i] = p.coefficients[p.coefficients.length - i - 1];
-        }
+        long[] thisReversed = reverse(this.coefficients);
+        long[] thatReversed = reverse(p.coefficients);
         
         for (int i = 0; i < initialArray.length; i++) {
             if(this.coefficients.length <= i) {
@@ -55,10 +56,7 @@ public class Polynomial {
             }
         }
         
-        long[] initialReversed = new long[max];
-        for (int i = 0; i < initialArray.length; i++) {
-            initialReversed[i] = initialArray[max-i-1];
-        }
+        long[] initialReversed = reverse(initialArray);
         
         Polynomial newPoly = new Polynomial(initialReversed);
         return newPoly;
