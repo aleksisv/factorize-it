@@ -1,5 +1,5 @@
 # factorize-it
-App that does primality checks.
+App that does primality checks using AKS-test.
 
 ## Dokumentaatio
 [Tuntikirjanpito](documentation/tuntikirjanpito.md)
