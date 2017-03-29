@@ -72,7 +72,7 @@ public class PolynomialTest {
         Polynomial p1 = new Polynomial(2, 7, 4);
         Polynomial p2 = new Polynomial(2, 1, 7, 6, 9);
         
-        Polynomial p3 = p1.times(p2);
+        Polynomial p3 = p1.multiply(p2);
         
         assertEquals(p3.getCoefficients()[0], 36);
     }

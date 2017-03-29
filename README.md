@@ -1,5 +1,5 @@
 # factorize-it
-
+App that does primality checks.
 
 ## Dokumentaatio
 [Tuntikirjanpito](documentation/tuntikirjanpito.md)

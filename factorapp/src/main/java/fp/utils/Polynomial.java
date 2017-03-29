@@ -1,16 +1,27 @@
 package fp.utils;
 
+/**
+ * Class whose instantiations are polynomials, i.e of the form P(x) = 5x^3 + x^2
+ * + 3x + 5 or.
+ */
 public class Polynomial {
 
     private long[] coefficients;
     private long degree;
 
+    /**
+     * Default constructor.
+     */
     public Polynomial() {
         this.coefficients = new long[1];
         this.coefficients[0] = 0;
         this.degree = determineDegree();
     }
-
+    
+    /**
+     * Default constructor.
+     * @param coeffs The coefficients of the polynomial.
+     */
     public Polynomial(long... coeffs) {
         this.coefficients = new long[coeffs.length];
         for (int i = 0; i < coeffs.length; i++) {
@@ -20,11 +31,20 @@ public class Polynomial {
         this.degree = determineDegree();
         this.sanitizePolynomial();
     }
-
+    
+    /**
+     * Getter.
+     * @return Coefficients of the polynomial.
+     */
     public long[] getCoefficients() {
         return coefficients;
     }
     
+    /**
+     * Reverses an array.
+     * @param arr Array to be reversed.
+     * @return Reversed array.
+     */
     private long[] reverse(long[] arr) {
         long[] reversed = new long[arr.length];
         for (int i = 0; i < arr.length; i++) {
@@ -33,17 +53,18 @@ public class Polynomial {
         return reversed;
     }
     
-
+    /**
+     * Adds two polynomials together.
+     * @param p Polynomial to be added to this polynomial.
+     * @return The sum of two polynomials.
+     */
     public Polynomial addPolynomial(Polynomial p) {
-        
+
         int max = Math.max(this.getCoefficients().length, p.getCoefficients().length);
         long initialArray[] = new long[max];
-        
-        long[] thisReversed = reverse(this.coefficients);
-        long[] thatReversed = reverse(p.coefficients);
-        
+
         for (int i = 0; i < initialArray.length; i++) {
-            if(this.coefficients.length <= i) {
+            if (this.coefficients.length <= i) {
                 initialArray[i] = p.coefficients[i];
             } else if (p.coefficients.length <= i) {
                 initialArray[i] = this.coefficients[i];
@@ -51,14 +72,19 @@ public class Polynomial {
                 initialArray[i] = p.coefficients[i] + this.coefficients[i];
             }
         }
-        
+
         long[] initialReversed = reverse(initialArray);
-        
+
         Polynomial newPoly = new Polynomial(initialReversed);
         newPoly.sanitizePolynomial();
         return newPoly;
     }
-
+    
+    /**
+     * Scales polynomial by some scalar.
+     * @param scale The scaling factor.
+     * @return The scaled polynomial.
+     */
     public Polynomial scalePolynomial(long scale) {
         long initialArray[] = new long[this.coefficients.length];
         for (int i = 0; i < initialArray.length; i++) {
@@ -69,7 +95,12 @@ public class Polynomial {
         newPoly.sanitizePolynomial();
         return newPoly;
     }
-
+    
+    
+    /**
+     * Determines the degree of a polynomial.
+     * @return The degree of the polynomial in question.
+     */
     private long determineDegree() {
         long degree = 0;
         for (int i = 0; i < this.coefficients.length; i++) {
@@ -80,30 +111,38 @@ public class Polynomial {
         return degree;
     }
     
+    /**
+     * Sanitizes this polynomial, i.e removes the leading zero.
+     */
     private void sanitizePolynomial() {
-        if(this.coefficients[this.coefficients.length - 1] == 0) {
+        if (this.coefficients[this.coefficients.length - 1] == 0) {
             long[] newArray = new long[this.coefficients.length - 1];
             for (int i = 0; i < newArray.length; i++) {
                 newArray[i] = this.coefficients[i];
             }
             this.setCoefficients(newArray);
         }
-        
+
     }
     
-    public Polynomial times(Polynomial p) {
+    /**
+     * Multiplies two polynomials.
+     * @param p the polynomial to be multiplied by this polynomial.
+     * @return The product of the two polynomials.
+     */
+    public Polynomial multiply(Polynomial p) {
         long initialArray[] = new long[p.coefficients.length + this.coefficients.length];
-        
+
         long[] thisReversed = reverse(this.coefficients);
         long[] thatReversed = reverse(p.coefficients);
-        
+
         for (int i = 0; i < thisReversed.length; i++) {
             for (int j = 0; j < thatReversed.length; j++) {
-                initialArray[i+j] += (this.coefficients[i]*p.coefficients[j]);
-                
+                initialArray[i + j] += (this.coefficients[i] * p.coefficients[j]);
+
             }
         }
-        
+
         long[] initialReversed = reverse(initialArray);
         Polynomial n = new Polynomial(initialReversed);
         n.sanitizePolynomial();
@@ -112,8 +151,8 @@ public class Polynomial {
     
     public Polynomial exponentiation(long exponent) {
         Polynomial newpoly = new Polynomial(1);
-        while(exponent>0) {
-            newpoly = newpoly.times(this);
+        while (exponent > 0) {
+            newpoly = newpoly.multiply(this);
             exponent--;
         }
         return newpoly;
@@ -159,7 +198,5 @@ public class Polynomial {
     public void setCoefficients(long[] coefficients) {
         this.coefficients = coefficients;
     }
-    
-    
 
 }
