@@ -58,7 +58,13 @@ public class PrimeTools {
          */
         return true;
     }
-
+    
+    /**
+     * Finds the smallest r for which r > log_2(n).
+     *
+     * @param n The prime relative to which r is calculated.
+     * @return The smallest r satisfying the requirement.
+     */
     public long findTheSmallestR(long n) {
         int r = 1;
         while (true) {
@@ -66,8 +72,7 @@ public class PrimeTools {
             if (!areCoprime(n, r)) {
                 continue;
             }
-            System.out.println(multiplicativeOrd(r, n));
-            if (multiplicativeOrd(r, n) > Math.pow(Math.log(n), 2)) {
+            if (multiplicativeOrd(r, n) > Math.pow(Math.log(n)/Math.log(2), 2)) {
                 break;
             }
         }
@@ -109,7 +114,6 @@ public class PrimeTools {
             double power = (double) 1 / (double) i;
             double a = Math.pow(n, power);
             double diff = Math.abs(a - Math.round(a));
-            System.out.println(diff);
             if (diff < 0.000000001) {
                 return true;
             }
@@ -126,12 +130,12 @@ public class PrimeTools {
      * @return True if it is, false if it isn't.
      */
     public boolean isPerfectPowerFast(long n) {
-        long b = 1;
-
+        /*long b = 1;
+        
         while (true) {
             break;
         }
-
+        */
         return false;
     }
 

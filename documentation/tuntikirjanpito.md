@@ -12,4 +12,10 @@ Päivä | Tunnit | Kuvaus
 23.3.2017 | 1h | Ohjelmointia ja ddokumentaatiota.
 24.3.2017 | 0.5h | Välipäivä.
 25.3.2017 | 3h | Ohjelmointia, dokumentaatiota, projektin tiedostojen uudelleenlokaatoimista ja raportointia.
-
+26.3.2017 | - | Välipäivä.
+27.3.2017 | 4h | Ohjelmointia. Erityisesti luokan Polynomial toteutusta.
+28.3.2017 | - | Välipäivä.
+29.3.2017 | 1h | Ohjelmointia.
+30.3.2017 | - | Välipäivä.
+31.3.2017 | 0.5h | Ohjelmointia.
+1.4.2017 | 2h | Dokumentaatiota ja viikkoraportin tekemistä.

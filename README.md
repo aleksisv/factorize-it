@@ -6,6 +6,6 @@ App that does primality checks using AKS-test.
 
 [Checkstyle-raportti](https://htmlpreview.github.io/?https://github.com/aleksisv/factorize-it/blob/master/documentation/checkstyle/site/checkstyle.html)
 
-[Pit-raportti](https://htmlpreview.github.io/?https://github.com/aleksisv/factorize-it/blob/master/documentation/pit/201703251432/index.html)
+[Pit-raportti](https://htmlpreview.github.io/?https://github.com/aleksisv/factorize-it/blob/master/documentation/pit/201704011227/index.html)
 
 [Viikkoraportit](documentation/viikkoraportit)

@@ -1,0 +1,22 @@
+-encoding
+'UTF-8'
+-protected
+-sourcepath
+'/Users/aleksisvuoksenmaa/Desktop/Opiskelu/Tietojenkäsittelytiede/tiralab/factorize-it/factorapp/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2017. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'/Users/aleksisvuoksenmaa/Desktop/Opiskelu/Tietojenkäsittelytiede/tiralab/factorize-it/factorapp/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'factorapp 1.0-SNAPSHOT API'
+-linkoffline
+'http://docs.oracle.com/javase/7/docs/api' '/Users/aleksisvuoksenmaa/Desktop/Opiskelu/Tietojenkäsittelytiede/tiralab/factorize-it/factorapp/target/javadoc-bundle-options'
+-use
+-version
+-windowtitle
+'factorapp 1.0-SNAPSHOT API'

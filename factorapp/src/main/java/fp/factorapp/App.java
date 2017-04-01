@@ -11,6 +11,7 @@ import java.util.Arrays;
 public class App {
 
     public static void main(String[] args) {
+        
         Polynomial p = new Polynomial(0, 2, 5, 4, 3, 20);
         System.out.println(p);
         Polynomial p2 = p.exponentiation(3);

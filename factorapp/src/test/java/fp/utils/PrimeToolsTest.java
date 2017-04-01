@@ -103,4 +103,11 @@ public class PrimeToolsTest {
         assertEquals(p.modularExponentiation(2, 4, 6), 4);
 
     }
+    
+    @Test
+    public void findTheSmallestRWorks1() {
+        PrimeTools p = new PrimeTools();
+        assertEquals(p.findTheSmallestR(31), 29);
+
+    }
 }

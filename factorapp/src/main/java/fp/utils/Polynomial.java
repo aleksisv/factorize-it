@@ -149,6 +149,11 @@ public class Polynomial {
         return n;
     }
     
+    /**
+     * Uses Polynomial.multiply to calculate powers of the given exponential.
+     * @param exponent The exponent used to calculate the power of the polynomial.
+     * @return The resulting polynomial.
+     */
     public Polynomial exponentiation(long exponent) {
         Polynomial newpoly = new Polynomial(1);
         while (exponent > 0) {
@@ -157,7 +162,12 @@ public class Polynomial {
         }
         return newpoly;
     }
-
+    
+    /**
+     * Evaluates the value of this polynomial at some point x.
+     * @param x Point where we want to evaluate the value of the polynomial.
+     * @return The value of the polynomial at x.
+     */
     public long evaluateAtX(long x) {
         long value = 0;
         for (int i = 0; i < this.coefficients.length; i++) {
@@ -166,7 +176,11 @@ public class Polynomial {
 
         return value;
     }
-
+    
+    /**
+     * Getter for the degree of the polynomial.
+     * @return The degree of the polynomial.
+     */
     public long getDegree() {
         return degree;
     }
