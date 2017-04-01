@@ -1,4 +1,4 @@
-### Viikkoraportti 2
+### Viikkoraportti 3
 
 Hitaan edellisen viikon jälkeen pääsin tällä viikolla taas koodauksen makuun. Alkuviikosta tajusin, että minun tarvitsisi koodata valtavan paljon enemmän kuin olin aikaisemmin kuvitellut ja tämä herätti minut panostamaan hieman enemmän itse koodaukseen.
 
