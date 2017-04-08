@@ -19,3 +19,10 @@ Päivä | Tunnit | Kuvaus
 30.3.2017 | - | Välipäivä.
 31.3.2017 | 0.5h | Ohjelmointia.
 1.4.2017 | 2h | Dokumentaatiota ja viikkoraportin tekemistä.
+2.4.2017 | 1h | Suunnittelua
+3.4.2017 | 0.5h | Polynomial-luokan suunnittelua
+4.4.2017 | - | Välipäivä.
+5.4.2017 | 1h | Polynomial-luokan longDivision-metodin suunnittelua.
+6.4.2017 | - | Välipäivä.
+7.4.2017 | - | Välipäivä.
+8.4.2017 | 4h | Ohjelmointia, testausta, dokumentaation päivitystä.
