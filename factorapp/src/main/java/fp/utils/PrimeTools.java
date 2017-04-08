@@ -35,6 +35,8 @@ public class PrimeTools {
      * @return Boolean that tells whether the integer n is prime or not.
      */
     public boolean aksPrimalityTest(long n) {
+        /* TO DO!
+        
         if (isPerfectPower(n)) {
             return false;
         }
@@ -53,14 +55,12 @@ public class PrimeTools {
             return true;
         }
 
-        /*
-        TO-DO
          */
         return true;
     }
-    
+
     /**
-     * Finds the smallest r for which r > log_2(n).
+     * Finds the smallest r for which r is bigger than log_2(n).
      *
      * @param n The prime relative to which r is calculated.
      * @return The smallest r satisfying the requirement.
@@ -72,7 +72,7 @@ public class PrimeTools {
             if (!areCoprime(n, r)) {
                 continue;
             }
-            if (multiplicativeOrd(r, n) > Math.pow(Math.log(n)/Math.log(2), 2)) {
+            if (multiplicativeOrd(r, n) > Math.pow(Math.log(n) / Math.log(2), 2)) {
                 break;
             }
         }
@@ -83,7 +83,7 @@ public class PrimeTools {
      * Checks the multiplicative order of a modulo n.
      *
      * @param n Modulo.
-     * @param a
+     * @param a Integers whose multiplicative order needs to be counted.
      * @return The multiplicative order of a modulo n.
      */
     public long multiplicativeOrd(long n, long a) {
@@ -135,7 +135,7 @@ public class PrimeTools {
         while (true) {
             break;
         }
-        */
+         */
         return false;
     }
 
@@ -192,5 +192,32 @@ public class PrimeTools {
         } else {
             return false;
         }
+    }
+
+    /**
+     * Euler's totient function. For given integer n, calculates phi(n), that is
+     * the number of integers that are relative prime to n.
+     *
+     * @param n The argument of phi(n) for which we want to calculate the number
+     * of integers relative prime to it.
+     * @return The number of integers relative prime to n.
+     */
+    public long phi(long n) {
+        long numCoprime = n;
+
+        for (int i = 2; i * i <= n; i++) {
+            if (n % i == 0) {
+                while (n % i == 0) {
+                    n /= i;
+                }
+                numCoprime -= (numCoprime / i);
+
+            }
+        }
+        if (n >= 2) {
+            numCoprime -= (numCoprime / n);
+        }
+
+        return numCoprime;
     }
 }

@@ -9,16 +9,14 @@ import java.util.Arrays;
  * The main class.
  */
 public class App {
-
+    
     public static void main(String[] args) {
-        
-        Polynomial p = new Polynomial(0, 2, 5, 4, 3, 20);
+        PrimeTools pt = new PrimeTools();
+        Polynomial p = new Polynomial(20, 10, 2);
+        System.out.println(pt.phi(99));
+        System.out.println(pt.phi(254213000));
         System.out.println(p);
-        Polynomial p2 = p.exponentiation(3);
-        System.out.println(p2);
-        Polynomial p3 = p.addPolynomial(p);
-        System.out.println(p3);
-        
+        System.out.println(p.shiftRight(2));
     }
-
+    
 }

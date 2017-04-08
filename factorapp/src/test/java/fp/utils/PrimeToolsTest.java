@@ -103,11 +103,31 @@ public class PrimeToolsTest {
         assertEquals(p.modularExponentiation(2, 4, 6), 4);
 
     }
-    
+
     @Test
     public void findTheSmallestRWorks1() {
         PrimeTools p = new PrimeTools();
         assertEquals(p.findTheSmallestR(31), 29);
+
+    }
+
+    @Test
+    public void phiWorks1() {
+        PrimeTools p = new PrimeTools();
+        int[] correctAnswers = {4, 10, 4, 12, 6, 8, 8, 16, 6, 18};
+        for (int i = 0; i < 10; i++) {
+            assertEquals(p.phi(i + 10), correctAnswers[i]);
+        }
+        assertEquals(p.phi(1321321), 1299600);
+
+        assertEquals(p.phi(2542130), 1016848);
+
+    }
+
+    @Test
+    public void aksWorks1() {
+        PrimeTools p = new PrimeTools();
+        assertEquals(p.aksPrimalityTest(3), true);
 
     }
 }

@@ -1,4 +1,3 @@
-
 package fp.utils;
 
 import org.junit.After;
@@ -10,36 +9,35 @@ import static org.junit.Assert.*;
 
 public class PolynomialTest {
 
-    
     public PolynomialTest() {
 
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
-        
+
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
-    
+
     @Test
     public void defaultConstructorWorks1() {
         Polynomial p = new Polynomial();
         assertEquals(p.toString(), "0");
     }
-    
+
     @Test
-    public void degreeWorks1(){
+    public void degreeWorks1() {
         Polynomial p = new Polynomial(2, 3);
         assertEquals(p.getDegree(), 1);
         p = new Polynomial(2, 3, 4, 5);
@@ -49,7 +47,7 @@ public class PolynomialTest {
         p = new Polynomial(0, 3, 3, 2);
         assertEquals(p.getDegree(), 2);
     }
-    
+
     @Test
     public void addingPolynomialWorks1() {
         Polynomial p1 = new Polynomial(2, 3);
@@ -57,7 +55,7 @@ public class PolynomialTest {
         Polynomial pAdd = p1.addPolynomial(p2);
         assertEquals(pAdd.toString(), "2x^2 + 5x^1 + 7");
     }
-    
+
     @Test
     public void scalingPolynomialWorks1() {
         Polynomial p1 = new Polynomial(10, 2, 1, 2, 3);
@@ -66,28 +64,45 @@ public class PolynomialTest {
         Polynomial p3 = p2.scalePolynomial(2);
         assertEquals(p3.toString(), "200x^4 + 40x^3 + 20x^2 + 40x^1 + 60");
     }
-    
+
     @Test
     public void multiplyingPolynomialWorks1() {
         Polynomial p1 = new Polynomial(2, 7, 4);
         Polynomial p2 = new Polynomial(2, 1, 7, 6, 9);
-        
+
         Polynomial p3 = p1.multiply(p2);
-        
+
         assertEquals(p3.getCoefficients()[0], 36);
     }
-    
+
     @Test
     public void exponentiatingPolynomialWorks1() {
         Polynomial p1 = new Polynomial(2, 1, 5);
         Polynomial p2 = p1.exponentiation(3);
         assertEquals(p2.getCoefficients()[4], 66);
-        
+
     }
-    
+
     @Test
     public void evaluationWorks1() {
         Polynomial p1 = new Polynomial(20, -3, 2, 3);
         assertEquals(p1.evaluateAtX(3), 522);
+    }
+
+    @Test
+    public void shiftRightWorks1() {
+        Polynomial p1 = new Polynomial(20, -3, 2, 3);
+        Polynomial p2 = p1.shiftRight(1);
+        assertEquals(p2.getCoefficients()[0], 0);
+        assertEquals(p2.getCoefficients()[1], 3);
+    }
+
+    @Test
+    public void copyThisPolyWorks1() {
+        Polynomial p1 = new Polynomial(20, -3, 2, 3, 0, 0, 3);
+        Polynomial p2 = p1.copyThisPoly();
+        for (int i = 0; i < p1.getDegree(); i++) {
+            assertEquals(p1.getCoefficients()[i], p2.getCoefficients()[i]);
+        }
     }
 }

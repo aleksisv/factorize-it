@@ -7,7 +7,7 @@ package fp.utils;
 public class Polynomial {
 
     private long[] coefficients;
-    private long degree;
+    private int degree;
 
     /**
      * Default constructor.
@@ -17,9 +17,10 @@ public class Polynomial {
         this.coefficients[0] = 0;
         this.degree = determineDegree();
     }
-    
+
     /**
      * Default constructor.
+     *
      * @param coeffs The coefficients of the polynomial.
      */
     public Polynomial(long... coeffs) {
@@ -31,17 +32,19 @@ public class Polynomial {
         this.degree = determineDegree();
         this.sanitizePolynomial();
     }
-    
+
     /**
      * Getter.
+     *
      * @return Coefficients of the polynomial.
      */
     public long[] getCoefficients() {
         return coefficients;
     }
-    
+
     /**
      * Reverses an array.
+     *
      * @param arr Array to be reversed.
      * @return Reversed array.
      */
@@ -52,9 +55,10 @@ public class Polynomial {
         }
         return reversed;
     }
-    
+
     /**
      * Adds two polynomials together.
+     *
      * @param p Polynomial to be added to this polynomial.
      * @return The sum of two polynomials.
      */
@@ -79,9 +83,10 @@ public class Polynomial {
         newPoly.sanitizePolynomial();
         return newPoly;
     }
-    
+
     /**
      * Scales polynomial by some scalar.
+     *
      * @param scale The scaling factor.
      * @return The scaled polynomial.
      */
@@ -95,14 +100,14 @@ public class Polynomial {
         newPoly.sanitizePolynomial();
         return newPoly;
     }
-    
-    
+
     /**
      * Determines the degree of a polynomial.
+     *
      * @return The degree of the polynomial in question.
      */
-    private long determineDegree() {
-        long degree = 0;
+    private int determineDegree() {
+        int degree = 0;
         for (int i = 0; i < this.coefficients.length; i++) {
             if (this.coefficients[i] != 0) {
                 degree = i;
@@ -110,12 +115,15 @@ public class Polynomial {
         }
         return degree;
     }
-    
+
     /**
-     * Sanitizes this polynomial, i.e removes the leading zero.
+     * Sanitizes this polynomial, i.e removes the leading zeroes.
      */
     private void sanitizePolynomial() {
-        if (this.coefficients[this.coefficients.length - 1] == 0) {
+        while (this.coefficients[(int) this.degree] == 0) {
+            if (this.degree == 0) {
+                return;
+            }
             long[] newArray = new long[this.coefficients.length - 1];
             for (int i = 0; i < newArray.length; i++) {
                 newArray[i] = this.coefficients[i];
@@ -124,9 +132,10 @@ public class Polynomial {
         }
 
     }
-    
+
     /**
      * Multiplies two polynomials.
+     *
      * @param p the polynomial to be multiplied by this polynomial.
      * @return The product of the two polynomials.
      */
@@ -148,10 +157,53 @@ public class Polynomial {
         n.sanitizePolynomial();
         return n;
     }
-    
+
+    /*
+    TO DO!
+    public Polynomial longDivision(Polynomial p) {
+        long initialArray[] = new long[p.coefficients.length];
+        Polynomial d = new Polynomial();
+        Polynomial r = this.copyThisPoly();
+        
+        if(this.degree < p.getDegree()) {
+            return new Polynomial();
+        }
+        
+        long coefficient = this.getCoefficients()[(int)this.degree]/p.getCoefficients()[(int)p.degree];
+        long exponent = this.degree - p.getDegree();
+        
+        
+        
+
+        
+
+        return r;
+    }
+     */
+    /**
+     * Shifts polynomial to right by some number of steps.
+     *
+     * @param steps The number of steps.
+     * @return The shifted polynomial.
+     */
+    public Polynomial shiftRight(int steps) {
+        long[] initialArray = new long[this.coefficients.length + steps];
+
+        for (int i = 0; i < this.coefficients.length; i++) {
+            initialArray[i] = this.coefficients[this.coefficients.length - 1 - i];
+        }
+
+        Polynomial p = new Polynomial(initialArray);
+        p.sanitizePolynomial();
+        return p;
+
+    }
+
     /**
      * Uses Polynomial.multiply to calculate powers of the given exponential.
-     * @param exponent The exponent used to calculate the power of the polynomial.
+     *
+     * @param exponent The exponent used to calculate the power of the
+     * polynomial.
      * @return The resulting polynomial.
      */
     public Polynomial exponentiation(long exponent) {
@@ -162,9 +214,10 @@ public class Polynomial {
         }
         return newpoly;
     }
-    
+
     /**
      * Evaluates the value of this polynomial at some point x.
+     *
      * @param x Point where we want to evaluate the value of the polynomial.
      * @return The value of the polynomial at x.
      */
@@ -176,13 +229,29 @@ public class Polynomial {
 
         return value;
     }
-    
+
     /**
      * Getter for the degree of the polynomial.
+     *
      * @return The degree of the polynomial.
      */
     public long getDegree() {
         return degree;
+    }
+
+    /**
+     * Makes a copy of the present polynomial.
+     *
+     * @return A copy of this polynomial.
+     */
+    public Polynomial copyThisPoly() {
+        long[] initialArray = this.getCoefficients();
+        long[] reversedArray = new long[this.getCoefficients().length];
+        for (int i = 0; i < initialArray.length; i++) {
+            reversedArray[i] = initialArray[initialArray.length - i - 1];
+        }
+        Polynomial newPoly = new Polynomial(reversedArray);
+        return newPoly;
     }
 
     @Override
