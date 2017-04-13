@@ -1,5 +1,7 @@
 package fp.utils;
 
+import java.util.Arrays;
+
 /**
  * Class whose instantiations are polynomials, i.e of the form P(x) = 5x^3 + x^2
  * + 3x + 5 or.
@@ -119,9 +121,11 @@ public class Polynomial {
     /**
      * Sanitizes this polynomial, i.e removes the leading zeroes.
      */
-    private void sanitizePolynomial() {
-        while (this.coefficients[(int) this.degree] == 0) {
-            if (this.degree == 0) {
+    public void sanitizePolynomial() {
+
+        while (this.coefficients[(int) this.coefficients.length - 1] == 0) {
+
+            if (this.coefficients.length == 1) {
                 return;
             }
             long[] newArray = new long[this.coefficients.length - 1];
@@ -158,28 +162,45 @@ public class Polynomial {
         return n;
     }
 
-    /*
-    TO DO!
+    /**
+     * Divides the current polynomial by some other polynomial.
+     *
+     * @param p The diviing polynomial.
+     * @return The result of the division.
+     */
     public Polynomial longDivision(Polynomial p) {
-        long initialArray[] = new long[p.coefficients.length];
         Polynomial d = new Polynomial();
         Polynomial r = this.copyThisPoly();
-        
-        if(this.degree < p.getDegree()) {
+
+        if (p.degree == 0 && p.coefficients[0] == 0) {
+            throw new RuntimeException("You cannot divide by the polynomial P(x)=0");
+        }
+
+        if (this.degree < p.getDegree()) {
             return new Polynomial();
         }
-        
-        long coefficient = this.getCoefficients()[(int)this.degree]/p.getCoefficients()[(int)p.degree];
+
+        long numeratorVal = this.coefficients[this.degree];
+        long denumVal = p.coefficients[p.degree];
+
+        long coef = numeratorVal / denumVal;
         long exponent = this.degree - p.getDegree();
-        
-        
-        
 
-        
+        Polynomial c = new Polynomial(1, 0);
+        Polynomial e = c.exponentiation(exponent);
+        Polynomial f = e.scalePolynomial(coef);
 
-        return r;
+        Polynomial bc = p.multiply(f);
+        Polynomial mbc = bc.scalePolynomial(-1);
+        Polynomial ambc = this.addPolynomial(mbc);
+        ambc.sanitizePolynomial();
+        Polynomial ambcdb = ambc.longDivision(p);
+        Polynomial res = f.addPolynomial(ambcdb);
+//        res.sanitizePolynomial();
+
+        return res;
     }
-     */
+
     /**
      * Shifts polynomial to right by some number of steps.
      *
