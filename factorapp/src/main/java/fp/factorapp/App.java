@@ -13,8 +13,10 @@ public class App {
     public static void main(String[] args) {
         PrimeTools pt = new PrimeTools();
         Polynomial p = new Polynomial(1, 30, 375, 2500, 9375, 18750, 15625);
-        Polynomial res = p.longDivision(new Polynomial(1, 5));
+        Polynomial res = p.longDivision(new Polynomial(1, 5).exponentiation(2));
         System.out.println(res);
+        System.out.println(res.mod(2));
+        
         
     }
     

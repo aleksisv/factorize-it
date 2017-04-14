@@ -127,7 +127,7 @@ public class PrimeToolsTest {
     @Test
     public void aksWorks1() {
         PrimeTools p = new PrimeTools();
-        assertEquals(p.aksPrimalityTest(3), true);
+        assertEquals(p.aksPrimalityTest(4), false);
 
     }
 }

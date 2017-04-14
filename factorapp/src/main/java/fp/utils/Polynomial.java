@@ -85,6 +85,16 @@ public class Polynomial {
         newPoly.sanitizePolynomial();
         return newPoly;
     }
+    
+    /**
+     * Subtracts one polynomial from the other.
+     *
+     * @param poly Polynomial to be added to this polynomial.
+     * @return The sum of two polynomials.
+     */
+    public Polynomial subtract(Polynomial poly) {
+        return this.addPolynomial(poly.scalePolynomial(-1));
+    }
 
     /**
      * Scales polynomial by some scalar.
@@ -169,8 +179,6 @@ public class Polynomial {
      * @return The result of the division.
      */
     public Polynomial longDivision(Polynomial p) {
-        Polynomial d = new Polynomial();
-        Polynomial r = this.copyThisPoly();
 
         if (p.degree == 0 && p.coefficients[0] == 0) {
             throw new RuntimeException("You cannot divide by the polynomial P(x)=0");
@@ -234,6 +242,52 @@ public class Polynomial {
             exponent--;
         }
         return newpoly;
+    }
+    
+    /**
+     * Uses calculates the congruence of polynomial modulo some other polynomial.
+     *
+     * @param p The polynomial relative to which the modular arithmetic is done.
+     * @return The resulting polynomial.
+     */
+    public Polynomial mod(Polynomial p) {
+        
+        Polynomial res = new Polynomial(1);
+        res.sanitizePolynomial();
+        return res;
+    }
+    
+    /**
+     * Uses calculates the congruence of polynomial modulo some integer.
+     *
+     * @param n Modulo.
+     * @return The resulting polynomial.
+     */
+    public Polynomial mod(long n) {
+        for (int i = 0; i < this.coefficients.length; i++) {
+            this.coefficients[i] = this.coefficients[i] % n;
+        }
+        this.sanitizePolynomial();
+        return this;
+    }
+    
+    /**
+     * Checks if two polynomials are the same.
+     *
+     * @param p The polynomial against which we are comparing this one.
+     * @return Truth value. If true, the polynomials are equal. If false, they are not.
+     */
+    public boolean polyEquals(Polynomial p) {
+        if(this.coefficients.length != p.getCoefficients().length) {
+            return false;
+        }
+        
+        for (int i = 0; i < this.coefficients.length; i++) {
+            if(this.coefficients[i] != p.getCoefficients()[i]) {
+                return false;
+            }
+        }
+        return true;
     }
 
     /**

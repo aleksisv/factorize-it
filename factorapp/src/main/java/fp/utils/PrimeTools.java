@@ -35,8 +35,7 @@ public class PrimeTools {
      * @return Boolean that tells whether the integer n is prime or not.
      */
     public boolean aksPrimalityTest(long n) {
-        /* TO DO!
-        
+
         if (isPerfectPower(n)) {
             return false;
         }
@@ -54,8 +53,19 @@ public class PrimeTools {
         if (n <= r) {
             return true;
         }
+        
+        long lim = (long) Math.floor( Math.sqrt( phi(r))*(Math.log(n) / Math.log(2)));
+        for (int a = 2; a <= lim; a++) {
+            Polynomial poly1 = new Polynomial(1, a).exponentiation(n);
+            Polynomial poly2 = new Polynomial(1, 0).exponentiation(n).addPolynomial(new Polynomial(a));
+            Polynomial poly = poly1.subtract(poly2);
+            Polynomial mod1 = new Polynomial(1, 0).exponentiation(r).addPolynomial(new Polynomial(-1));
+            
+            if((poly1.subtract(poly2).mod(n).mod(mod1)) != new Polynomial(0)) {
+                return false;
+            }
+        }
 
-         */
         return true;
     }
 
