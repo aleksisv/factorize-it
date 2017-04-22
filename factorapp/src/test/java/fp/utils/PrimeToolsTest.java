@@ -61,6 +61,7 @@ public class PrimeToolsTest {
         }
         assertEquals(p.gcd(123512, 13245), 1);
         assertEquals(p.gcd(14000, 13245022), 14);
+        assertEquals(p.gcd(5, 4), 1);
     }
 
     @Test
@@ -128,6 +129,7 @@ public class PrimeToolsTest {
     public void aksWorks1() {
         PrimeTools p = new PrimeTools();
         assertEquals(p.aksPrimalityTest(4), false);
-
+        assertEquals(p.aksPrimalityTest(17), true);
+        assertTrue(p.aksPrimalityTest(2));
     }
 }

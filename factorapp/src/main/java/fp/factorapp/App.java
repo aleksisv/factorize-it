@@ -12,11 +12,15 @@ public class App {
     
     public static void main(String[] args) {
         PrimeTools pt = new PrimeTools();
-        Polynomial p = new Polynomial(1, 30, 375, 2500, 9375, 18750, 15625);
-        Polynomial res = p.longDivision(new Polynomial(1, 5).exponentiation(2));
-        System.out.println(res);
-        System.out.println(res.mod(2));
+        Polynomial p1 = new Polynomial(1, 4);
         
+        long t1 = System.nanoTime();
+        pt.areCoprime(311343244232L, 33321332134214L);
+        long t2 = System.nanoTime();
+        p1 = p1.exponentiation(320);
+        long t3 = System.nanoTime();
+        System.out.println(t3-t2);
+
         
     }
     

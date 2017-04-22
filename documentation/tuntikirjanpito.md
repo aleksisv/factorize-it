@@ -32,3 +32,11 @@ Päivä | Tunnit | Kuvaus
 12.4.2017 | - | Välipäivä.
 13.4.2017 | 3h | Ohjelmointia. Uusien metodien suunnittelua.
 14.4.2017 |3h | Ohjelmointia. Uusien metodien toteutusta.
+15.4.2017 |  - | Välipäivä.
+16.4.2017 | 1-2h | Ohjelmointia.
+17.4.2017 | 1h | Ohjelmointia.
+18.4.2017 | - | Välipäivä.
+19.4.2017 | 1h | Ohjelmointia.
+20.4.2017 | - | Välipäivä.
+21.4.2017 | 0.5h | Ohjelmointia ja dokumentaatiota.
+22.4.2017 | 4h | Ohjelmointia, testausta, dokumentaatiota.

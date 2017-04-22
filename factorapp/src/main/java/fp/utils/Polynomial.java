@@ -247,15 +247,23 @@ public class Polynomial {
     /**
      * Uses calculates the congruence of polynomial modulo some other polynomial.
      *
-     * @param p The polynomial relative to which the modular arithmetic is done.
+     * @param polmod The modulo. This is of the form x^n - a.
      * @return The resulting polynomial.
      */
-    public Polynomial mod(Polynomial p) {
-        
-        Polynomial res = new Polynomial(1);
-        res.sanitizePolynomial();
-        return res;
+    public Polynomial mod(Polynomial polmod) {
+        Polynomial remainder = new Polynomial(this.coefficients);
+
+        while (remainder.degree >= polmod.degree) {
+            long difference = remainder.degree - polmod.degree;
+            Polynomial substitution = new Polynomial(polmod.coefficients)
+                    .multiply(new Polynomial(1,0)).exponentiation(difference);
+
+            remainder = remainder.subtract(substitution);
+        }
+
+        return remainder;
     }
+    
     
     /**
      * Uses calculates the congruence of polynomial modulo some integer.
@@ -313,6 +321,7 @@ public class Polynomial {
     public long getDegree() {
         return degree;
     }
+    
 
     /**
      * Makes a copy of the present polynomial.

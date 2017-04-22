@@ -42,7 +42,7 @@ public class PrimeTools {
 
         long r = findTheSmallestR(n);
 
-        long upperLimit = Math.min(n, r);
+        long upperLimit = Math.min(n-1, r);
 
         for (long i = 2; i <= upperLimit; i++) {
             if (n % i == 0) {
@@ -54,17 +54,26 @@ public class PrimeTools {
             return true;
         }
         
+        /* TO DO!
         long lim = (long) Math.floor( Math.sqrt( phi(r))*(Math.log(n) / Math.log(2)));
+        
         for (int a = 2; a <= lim; a++) {
             Polynomial poly1 = new Polynomial(1, a).exponentiation(n);
             Polynomial poly2 = new Polynomial(1, 0).exponentiation(n).addPolynomial(new Polynomial(a));
+            
             Polynomial poly = poly1.subtract(poly2);
             Polynomial mod1 = new Polynomial(1, 0).exponentiation(r).addPolynomial(new Polynomial(-1));
             
-            if((poly1.subtract(poly2).mod(n).mod(mod1)) != new Polynomial(0)) {
+            Polynomial remainder = poly.mod(n).mod(mod1);
+            
+            
+            
+            if(!remainder.polyEquals(new Polynomial(0))) {
+                
                 return false;
             }
         }
+        */
 
         return true;
     }
@@ -131,30 +140,13 @@ public class PrimeTools {
 
         return false;
     }
-
-    /**
-     * Daniel Bernstein's algorithm for testing whether an integer is a perfect
-     * power.
-     *
-     * @param n Integer to be tested.
-     * @return True if it is, false if it isn't.
-     */
-    public boolean isPerfectPowerFast(long n) {
-        /*long b = 1;
-        
-        while (true) {
-            break;
-        }
-         */
-        return false;
-    }
-
+    
     /**
      * Function that determines n^exponent modulo mod.
      *
      * @param n Base.
      * @param exponent Exponent.
-     * @param mod Modulo.s
+     * @param mod Modulo.
      * @return n^exponent (Mod mod).
      */
     public long modularExponentiation(long n, long exponent, long mod) {
