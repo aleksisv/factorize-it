@@ -1,4 +1,4 @@
-### Viikkoraportti 3
+### Viikkoraportti 4
 
 Tällä viikolla keskityn suurimmaksi osaksi ohjelman haastavimman vaiheen, eli polynomimodulaariaritmetiikan, kanssa painimiseen. AKS-testin keskeisimmässä vaiheessa testataan erilaisille a:n arvoille, mikäli (X+a)^n ≠ X^n+a (mod X^r − 1,n). Tätä varten minun pitää pystyä toteuttamaan polynomien jakolasku.
 
