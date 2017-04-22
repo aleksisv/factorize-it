@@ -8,6 +8,6 @@ App that does primality checks using AKS-test.
 
 [Viikkoraportit](documentation/viikkoraportit/)
 
-[Testausdokumentaatio](documentation/testausdokumentti.md)
+[Testausdokumentaatio](documentation/testausdokumentaatio.md)
 
 [toteutusdokumentaatio](documentation/toteutusdokumentaatio.md)
