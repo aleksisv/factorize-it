@@ -40,3 +40,9 @@ Päivä | Tunnit | Kuvaus
 20.4.2017 | - | Välipäivä.
 21.4.2017 | 0.5h | Ohjelmointia ja dokumentaatiota.
 22.4.2017 | 4h | Ohjelmointia, testausta, dokumentaatiota.
+23.4.2017 | 0h | Välipäivä
+24.4.2017 | 1h | Modulaarieksponentiaatioon perehtymistä.
+25.4.2017 | 1h | Ohjelmointia.
+26.4.2017 | 0h | Välipäivä
+27.4.2017 | 1h | Ohjelmointia.
+28.4.2017 | 5h | Ohjelmointia.
