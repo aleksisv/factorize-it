@@ -7,6 +7,8 @@ Polynomial-luokan metodeja on testattu kattavasti JUnit-testeillä. Testaus tapa
 
 ## Suorituskykytestaus
 
+AKS-algoritmi toimii tällä hetkellä melko hitaasti johtuen siihen tarvittavien Polynomial-metodien raskaudesta. Oheisessa kuvassa näkyy, kuinka monta millisekuntia kunkin luvun primaalisuuden testaamiseen kului. ![AKS-testin nopeus](time_in_milliseconds_200_first_primes.png).
+
 ### Yksittäisten metodien nopeus
 
 Tässä vaiheessa testaan vain, että metodit ei vie näillä syötteillä liian kauan aikaa.
@@ -15,6 +17,8 @@ Tässä vaiheessa testaan vain, että metodit ei vie näillä syötteillä liian
 #### PrimeTools-luokka
 1. phi(n) laskee arvon phi(100 000 000 000 000L) 50000 nanosekunnissa.
 2. areCoprime(311343244232L, 33321332134214L); lasketaan alle 20000 nanosekunnissa.
+
+
 
 
 #### Polynomial-luokka
