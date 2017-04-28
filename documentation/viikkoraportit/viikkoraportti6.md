@@ -12,7 +12,7 @@ Toteuttamani AKS-algoritmi toimii tällä hetkellä oikein ja osaa jaotella anne
 alkulukuihin tai yhdistettyihin lukuihin. Törmäsin kuitenkin algorimin käytön kannalta vakavaan ongelmaan:
 se on toteutustasolla älyttömän hidas tarkistamaan alkuluvusta, onko se todella alkuluku.
 Tämä näkyy selvästi kuvaajasta, jossa kokonaisluvut ja niiden alkulukuisuuden määrittämiseen
-käytetty aika (ms.) on kuvattu vastakkain. ![AKS-testin nopeus](time_in_milliseconds_200_first_primes.png).
+käytetty aika (ms.) on kuvattu vastakkain. ![AKS-testin nopeus](../time_in_milliseconds_200_first_primes.png).
 
 Uskon ongelman johtuvan siitä, että algorimin viidennessä pääkohdassa joudun käyttämään
 paljon ja suurikertoimisia Polynomi-luokan olioita, jotka itsessään ovat ajallisesti
