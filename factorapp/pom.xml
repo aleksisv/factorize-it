@@ -38,6 +38,14 @@
                 <groupId>org.pitest</groupId>
                 <artifactId>pitest-maven</artifactId>
                 <version>0.30</version>
+                <configuration>
+                    <targetClasses>
+                        <param>fp.utils*</param>
+                    </targetClasses>
+                    <targetTests>
+                        <param>fp.utils*</param>
+                    </targetTests>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

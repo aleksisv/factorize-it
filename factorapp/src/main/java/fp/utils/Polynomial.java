@@ -244,6 +244,16 @@ public class Polynomial {
         return newpoly;
     }
     
+    
+    /**
+     * Uses Polynomial.multiply() and Polynomial.mod() to calculate the exponential
+     * of the polynomial when we take into account some modulus.
+     *
+     * @param exponent The exponent used to calculate the power of the
+     * polynomial.
+     * @param modulo Modulo, modulo which we are calculating.
+     * @return The resulting polynomial.
+     */
     public Polynomial modularExponentiation(long exponent, long modulo) {
         Polynomial copyPoly = this.copyThisPoly();
         Polynomial resultPoly = this.copyThisPoly();

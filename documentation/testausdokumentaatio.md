@@ -7,7 +7,7 @@ Polynomial-luokan metodeja on testattu kattavasti JUnit-testeillä. Testaus tapa
 
 ## Suorituskykytestaus
 
-AKS-algoritmi toimii tällä hetkellä melko hitaasti johtuen siihen tarvittavien Polynomial-metodien raskaudesta. Oheisessa kuvassa näkyy, kuinka monta millisekuntia kunkin luvun primaalisuuden testaamiseen kului. ![AKS-testin nopeus](time_in_milliseconds_200_first_primes.png).
+AKS-algoritmi toimii tällä hetkellä melko hitaasti johtuen siihen tarvittavien Polynomial-metodien raskaudesta. Oheisessa kuvassa näkyy, kuinka monta millisekuntia kunkin luvun primaalisuuden testaamiseen kului. Kuvasta näkyy, että erityisesti alkulukujen kohdalla algoritmilla kestää todella kauan, kun taas ei-alkulukujen kohdalla määritys onnistuu välittömästi. ![AKS-testin nopeus](time_in_milliseconds_200_first_primes.png).
 
 ### Yksittäisten metodien nopeus
 

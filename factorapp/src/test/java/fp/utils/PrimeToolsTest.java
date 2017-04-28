@@ -131,5 +131,12 @@ public class PrimeToolsTest {
         assertEquals(p.aksPrimalityTest(4), false);
         assertEquals(p.aksPrimalityTest(17), true);
         assertTrue(p.aksPrimalityTest(2));
+        assertFalse(p.aksPrimalityTest(4));
+    }
+    
+    @Test
+    public void aksWorks2() {
+        PrimeTools p = new PrimeTools();
+        assertTrue(p.aksPrimalityTest(139));
     }
 }

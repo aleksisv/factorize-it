@@ -135,4 +135,23 @@ public class PolynomialTest {
         System.out.println(c1);
         assertTrue(res1.polyEquals(c1));
     }
+    
+    @Test
+    public void modularExponentiationWorks1() {
+        Polynomial p1 = new Polynomial(1, 1);
+        Polynomial res1 = p1.modularExponentiation(2, 10);
+        assertTrue(res1.polyEquals(new Polynomial(1, 2, 1)));
+        Polynomial res2 = p1.modularExponentiation(2, 2);
+        assertTrue(res2.polyEquals(new Polynomial(1, 0, 1)));
+    }
+    
+    @Test
+    public void modularExponentiationWorks2() {
+        Polynomial p1 = new Polynomial(1, 4);
+        Polynomial res1 = p1.modularExponentiation(3, 10);
+        assertTrue(res1.polyEquals(new Polynomial(1, 2, 8, 4)));
+        Polynomial res2 = p1.modularExponentiation(3, 2);
+        assertTrue(res2.polyEquals(new Polynomial(1, 0, 0, 0)));
+    }
+    
 }
