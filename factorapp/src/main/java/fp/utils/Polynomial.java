@@ -244,6 +244,18 @@ public class Polynomial {
         return newpoly;
     }
     
+    public Polynomial modularExponentiation(long exponent, long modulo) {
+        Polynomial copyPoly = this.copyThisPoly();
+        Polynomial resultPoly = this.copyThisPoly();
+        while(exponent>1) {
+            resultPoly = resultPoly.multiply(copyPoly);
+            resultPoly = resultPoly.mod(modulo);
+            exponent--;
+        }
+        resultPoly.sanitizePolynomial();
+        return resultPoly;
+    }
+    
     /**
      * Uses calculates the congruence of polynomial modulo some other polynomial.
      *

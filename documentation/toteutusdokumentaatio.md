@@ -14,6 +14,7 @@ Käyttäjän on tarkoitus käyttää ohjelmaa yksinkertaisen komentorivikäyttö
 
 Ideaalitapauksessa algoritmin aikavaativuuden tulisi olla luokkaa O(log(n)^6*log^6(log(n)^6)). Tässä vaiheessa koodissa on vielä paljon turhaa, joten tämänhetkinen aikavaativuus tuskin yltää tähän tasolle.
 
+
 ## Tilavaativuus
 
 Arviointi kesken.
@@ -22,7 +23,7 @@ Arviointi kesken.
 
 ## Lähteet
 
-* AKS: 
+* AKS:
 	.. [AKS yleisesti](https://en.wikipedia.org/wiki/AKS_primality_test)
 	.. [Alkuperäinen artikkeli](http://annals.math.princeton.edu/2004/160-2/p12)
 * Lukuteoria:

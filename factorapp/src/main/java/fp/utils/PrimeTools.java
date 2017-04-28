@@ -54,26 +54,30 @@ public class PrimeTools {
             return true;
         }
         
-        /* TO DO!
+        
         long lim = (long) Math.floor( Math.sqrt( phi(r))*(Math.log(n) / Math.log(2)));
         
+        Polynomial poly2 = new Polynomial(1, 0).modularExponentiation(n, n);
+        Polynomial moduloPoly = new Polynomial(1, 0).exponentiation(r).addPolynomial(new Polynomial(-1));
+        
         for (int a = 2; a <= lim; a++) {
-            Polynomial poly1 = new Polynomial(1, a).exponentiation(n);
-            Polynomial poly2 = new Polynomial(1, 0).exponentiation(n).addPolynomial(new Polynomial(a));
+            Polynomial poly1 = new Polynomial(1, a).modularExponentiation(n, n);
+            //Polynomial poly2 = new Polynomial(1, 0).modularExponentiation(n, n).addPolynomial(new Polynomial(a));
+            System.out.println("At: " + a);
+            System.out.println("limit: " + lim);
+            System.out.println("");
+           
+            Polynomial poly2a = poly2.addPolynomial(new Polynomial(a));
             
-            Polynomial poly = poly1.subtract(poly2);
-            Polynomial mod1 = new Polynomial(1, 0).exponentiation(r).addPolynomial(new Polynomial(-1));
-            
-            Polynomial remainder = poly.mod(n).mod(mod1);
-            
-            
+            Polynomial poly = poly1.subtract(poly2a);
+            //Polynomial mod1 = new Polynomial(1, 0).exponentiation(r).addPolynomial(new Polynomial(-1));
+            Polynomial remainder = poly.mod(moduloPoly);
             
             if(!remainder.polyEquals(new Polynomial(0))) {
-                
                 return false;
             }
         }
-        */
+        
 
         return true;
     }
