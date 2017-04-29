@@ -25,8 +25,8 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2017</copyright>
     <item>
-      <title>File: 4,
-             Errors: 2,
+      <title>File: 7,
+             Errors: 16,
              Warnings: 0,
              Infos: 0
       </title>
@@ -46,6 +46,20 @@ under the License.
           <tbody>
                           <tr>
                 <td>
+                  <a href="${project.url}/checkstyle.html#fp.io.CommandCentral.java">fp/io/CommandCentral.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="${project.url}/checkstyle.html#fp.utils.PrimeTools.java">fp/utils/PrimeTools.java</a>
                 </td>
                 <td>
@@ -55,7 +69,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  1
+                  8
                 </td>
               </tr>
                           <tr>
@@ -74,7 +88,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#fp.logic.Heap.java">fp/logic/Heap.java</a>
+                  <a href="${project.url}/checkstyle.html#fp.io.IO.java">fp/io/IO.java</a>
                 </td>
                 <td>
                   0
@@ -88,7 +102,21 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#fp.utils.Polynomial.java">fp/utils/Polynomial.java</a>
+                  <a href="${project.url}/checkstyle.html#fp.io.ConsoleInterface.java">fp/io/ConsoleInterface.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#fp.io.ConsoleIO.java">fp/io/ConsoleIO.java</a>
                 </td>
                 <td>
                   0
@@ -98,6 +126,20 @@ under the License.
                 </td>
                 <td>
                   1
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#fp.utils.Polynomial.java">fp/utils/Polynomial.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  7
                 </td>
               </tr>
                       </tbody>
