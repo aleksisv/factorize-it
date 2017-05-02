@@ -1,5 +1,6 @@
 package fp.factorapp;
 
+import fp.gui.GraphicalPrimeTool;
 import fp.io.ConsoleIO;
 
 import fp.io.ConsoleInterface;
@@ -17,37 +18,38 @@ import static java.util.stream.Collectors.joining;
 public class App {
 
     public static void main(String[] args) throws IOException {
+          GraphicalPrimeTool gpt = new GraphicalPrimeTool();
+          gpt.run();
 //        ConsoleInterface ci = new ConsoleInterface(new ConsoleIO());
 //        ci.run();
 
-        PrimeTools pt = new PrimeTools();
-
-        boolean[] primeOrNot = new boolean[200];
-        long[] time = new long[200];
-        for (int i = 2; i < primeOrNot.length; i++) {
-            long t1 = System.currentTimeMillis();
-            boolean prime = pt.aksPrimalityTest(i);
-            long t2 = System.currentTimeMillis();
-
-            time[i] = t2 - t1;
-
-            if (prime) {
-                primeOrNot[i] = true;
-            } else {
-                primeOrNot[i] = false;
-            }
-        }
-
-        System.out.println(Arrays.toString(primeOrNot));
-        System.out.println(Arrays.toString(time));
-
-        FileWriter writer = new FileWriter("first200primetime.csv");
-
-        for (int j = 0; j < time.length; j++) {
-            writer.append(String.valueOf(time[j]));
-            writer.append("\n");
-        }
-        writer.close();
+        
+//        boolean[] primeOrNot = new boolean[200];
+//        long[] time = new long[200];
+//        for (int i = 2; i < primeOrNot.length; i++) {
+//            long t1 = System.currentTimeMillis();
+//            boolean prime = pt.aksPrimalityTest(i);
+//            long t2 = System.currentTimeMillis();
+//
+//            time[i] = t2 - t1;
+//
+//            if (prime) {
+//                primeOrNot[i] = true;
+//            } else {
+//                primeOrNot[i] = false;
+//            }
+//        }
+//
+//        System.out.println(Arrays.toString(primeOrNot));
+//        System.out.println(Arrays.toString(time));
+//
+//        FileWriter writer = new FileWriter("first200primetime.csv");
+//
+//        for (int j = 0; j < time.length; j++) {
+//            writer.append(String.valueOf(time[j]));
+//            writer.append("\n");
+//        }
+//        writer.close();
 
 //        long t1 = System.nanoTime();
 //        pt.areCoprime(311343244232L, 33321332134214L);

@@ -63,9 +63,9 @@ public class PrimeTools {
         for (int a = 2; a <= lim; a++) {
             Polynomial poly1 = new Polynomial(1, a).modularExponentiation(n, n);
             //Polynomial poly2 = new Polynomial(1, 0).modularExponentiation(n, n).addPolynomial(new Polynomial(a));
-            System.out.println("At: " + a);
-            System.out.println("limit: " + lim);
-            System.out.println("");
+//            System.out.println("At: " + a);
+//            System.out.println("limit: " + lim);
+//            System.out.println("");
            
             Polynomial poly2a = poly2.addPolynomial(new Polynomial(a));
             
