@@ -8,7 +8,7 @@ PrimeTools-luokka pitää sisällään lukuteoreettiset työkalut, joilla alkeel
 
 Polynomial-luokan oliot ovat yhden muuttujan kokonaislukukertoimisia polynomeja. Luokkaa tarvitaan AKS-algoritmin viimeiseen ja tärkeimpään vaiheeseen, jossa lasketaan modulaariaritmetiikkaa tietyillä polynomeilla. Tätä varten luokkaan on toteutettu joukko polynomien algebraan liittyviä metodeja. Polynomial-luokan olioilla on kaksi attribuuttia: kertoimet määrittävä, long[]-tyyppinen coefficients" sekä polynomin asteen säilövä "degree".
 
-Käyttäjän on tarkoitus käyttää ohjelmaa yksinkertaisen komentorivikäyttöliittymän kautta.	
+Käyttäjän on tarkoitus käyttää ohjelmaa yksinkertaisen komentorivikäyttöliittymän kautta.
 
 ## Aikavaativuus
 
@@ -22,7 +22,7 @@ Arviointi kesken.
 
 ## Lähteet
 
-* AKS: 
+* AKS:
 	.. [AKS yleisesti](https://en.wikipedia.org/wiki/AKS_primality_test)
 	.. [Alkuperäinen artikkeli](http://annals.math.princeton.edu/2004/160-2/p12)
 * Lukuteoria:
