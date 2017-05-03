@@ -226,4 +226,19 @@ public class PrimeTools {
 
         return numCoprime;
     }
+    
+    /**
+     * Sieve of Erastothenes. The naive way to test primality.
+     *
+     * @param integer The integer to be tested.
+     * @return Truth value: is integer primal or not.
+     */
+    public boolean sieveErastothens(long integer) {
+        for (int i = 2; i <= Math.sqrt(integer); i++) {
+            if(integer % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
 }

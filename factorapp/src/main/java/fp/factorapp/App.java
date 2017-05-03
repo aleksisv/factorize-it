@@ -18,12 +18,9 @@ import static java.util.stream.Collectors.joining;
 public class App {
 
     public static void main(String[] args) throws IOException {
-          GraphicalPrimeTool gpt = new GraphicalPrimeTool();
-          gpt.run();
-//        ConsoleInterface ci = new ConsoleInterface(new ConsoleIO());
-//        ci.run();
+        GraphicalPrimeTool gpt = new GraphicalPrimeTool();
+        gpt.run();
 
-        
 //        boolean[] primeOrNot = new boolean[200];
 //        long[] time = new long[200];
 //        for (int i = 2; i < primeOrNot.length; i++) {
@@ -50,7 +47,6 @@ public class App {
 //            writer.append("\n");
 //        }
 //        writer.close();
-
 //        long t1 = System.nanoTime();
 //        pt.areCoprime(311343244232L, 33321332134214L);
 //        long t2 = System.nanoTime();

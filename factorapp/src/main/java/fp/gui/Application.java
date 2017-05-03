@@ -9,11 +9,11 @@ public class Application {
         this.primeTools = new PrimeTools();
     }
     
-    public boolean primalityTest(int number) {
+    public boolean primalityTest(long number) {
         return primeTools.aksPrimalityTest(number);
     }
 
-    public void factorization(int number) {
+    public void factorization(long number) {
        
     }
 

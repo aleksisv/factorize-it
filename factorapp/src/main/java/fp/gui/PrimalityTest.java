@@ -24,7 +24,7 @@ public class PrimalityTest implements Command {
     
     @Override
     public void execute() {
-        int testedInteger = Integer.parseInt(this.inputField.getText());
+        long testedInteger = Long.parseLong(this.inputField.getText());
         boolean result = app.primalityTest(testedInteger);
         this.outputField.setText(Boolean.toString(result));
     }
