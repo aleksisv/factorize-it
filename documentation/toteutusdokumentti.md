@@ -23,7 +23,8 @@ Arviointi kesken.
 ## Lähteet
 
 * AKS:
-	.. [AKS yleisesti](https://en.wikipedia.org/wiki/AKS_primality_test)
-	.. [Alkuperäinen artikkeli](http://annals.math.princeton.edu/2004/160-2/p12)
+	* [AKS yleisesti](https://en.wikipedia.org/wiki/AKS_primality_test)
+	* [Alkuperäinen artikkeli](http://annals.math.princeton.edu/2004/160-2/p12)
+	
 * Lukuteoria:
 	.. H. Cohen. _A Course in Computational Algebraic Number Theory_. 1993
