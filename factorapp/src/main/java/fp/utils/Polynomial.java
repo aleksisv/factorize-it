@@ -168,6 +168,23 @@ public class Polynomial {
         Polynomial n = new Polynomial(initialReversed);
         return n;
     }
+    
+    /**
+     * Multiplies two polynomials. Differnet structure.
+     *
+     * @param p the polynomial to be multiplied by this polynomial.
+     */
+    public void multiply2(Polynomial p) {
+        long[] news = new long[this.coefficients.length + p.getCoefficients().length];
+        
+        for (int i = 0; i < this.coefficients.length; i++) {
+            for (int j = 0; j < p.coefficients.length; j++) {
+                news[news.length - 1-  (i + j)] = this.coefficients[i] * p.getCoefficients()[j];
+            }
+        }
+        this.setCoefficients(news);
+        this.sanitizePolynomial();
+    }
 
     /**
      * Shifts polynomial to right by some number of steps.
