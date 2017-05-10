@@ -18,8 +18,21 @@ import static java.util.stream.Collectors.joining;
 public class App {
 
     public static void main(String[] args) throws IOException {
-        GraphicalPrimeTool gpt = new GraphicalPrimeTool();
-        gpt.run();
+//        PrimeTools pt = new PrimeTools();
+//        
+//        System.out.println(pt.aksPrimalityTest(5209));
+          Polynomial pol = new Polynomial(1, 34);
+          Polynomial res = pol.modularExponentiation(1234, 4);
+          long t1 = System.currentTimeMillis();
+          Polynomial pol2 = res.multiply(res);
+          
+          long t2 = System.currentTimeMillis();
+          System.out.println(pol2);
+          
+          
+          System.out.println("Took " + (t2-t1) + " milliseconds to calculate");
+//        GraphicalPrimeTool gpt = new GraphicalPrimeTool();
+//        gpt.run();
 
 //        boolean[] primeOrNot = new boolean[200];
 //        long[] time = new long[200];

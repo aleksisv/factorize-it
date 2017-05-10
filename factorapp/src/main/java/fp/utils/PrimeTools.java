@@ -10,6 +10,15 @@ import java.math.RoundingMode;
  * prime or not.
  */
 public class PrimeTools {
+    private Polynomial ONE;
+    private Polynomial ZERO;
+
+    public PrimeTools() {
+        this.ONE = new Polynomial(1, 0);
+        this.ZERO = new Polynomial(0);
+    }
+    
+    
 
     /**
      * Sieve-based primality test.
@@ -43,7 +52,8 @@ public class PrimeTools {
         long r = findTheSmallestR(n);
 
         long upperLimit = Math.min(n-1, r);
-
+        
+        
         for (long i = 2; i <= upperLimit; i++) {
             if (n % i == 0) {
                 return false;
@@ -53,27 +63,22 @@ public class PrimeTools {
         if (n <= r) {
             return true;
         }
-        
-        
         long lim = (long) Math.floor( Math.sqrt( phi(r))*(Math.log(n) / Math.log(2)));
-        
+
         Polynomial poly2 = new Polynomial(1, 0).modularExponentiation(n, n);
         Polynomial moduloPoly = new Polynomial(1, 0).exponentiation(r).addPolynomial(new Polynomial(-1));
-        
+        Polynomial zeroPoly = new Polynomial(0);
+
         for (int a = 2; a <= lim; a++) {
             Polynomial poly1 = new Polynomial(1, a).modularExponentiation(n, n);
-            //Polynomial poly2 = new Polynomial(1, 0).modularExponentiation(n, n).addPolynomial(new Polynomial(a));
-//            System.out.println("At: " + a);
-//            System.out.println("limit: " + lim);
-//            System.out.println("");
-           
+
             Polynomial poly2a = poly2.addPolynomial(new Polynomial(a));
             
             Polynomial poly = poly1.subtract(poly2a);
-            //Polynomial mod1 = new Polynomial(1, 0).exponentiation(r).addPolynomial(new Polynomial(-1));
+
             Polynomial remainder = poly.mod(moduloPoly);
             
-            if(!remainder.polyEquals(new Polynomial(0))) {
+            if(!remainder.polyEquals(zeroPoly)) {
                 return false;
             }
         }

@@ -107,18 +107,6 @@ public class PolynomialTest {
     }
     
     @Test
-    public void longDivisionWorks1() {
-        Polynomial p1 = new Polynomial(1, 30, 375, 2500, 9375, 18750, 15625);
-        Polynomial p2 = new Polynomial(1, 5);
-        Polynomial q = p1.longDivision(p2);
-        
-        long[] rightCoefs = {3125, 3125, 1250, 250, 25, 1};
-        for (int i = 0; i < q.getCoefficients().length; i++) {
-            assertEquals(q.getCoefficients()[i], rightCoefs[i]);
-        }
-    }
-    
-    @Test
     public void polyEqualsWorks1() {
         assertTrue(new Polynomial(1, 1).polyEquals(new Polynomial(0, 1, 1)));
         assertTrue(new Polynomial(2, 0, 5).polyEquals(new Polynomial(2, 0, 5)));

@@ -82,7 +82,6 @@ public class Polynomial {
         long[] initialReversed = reverse(initialArray);
 
         Polynomial newPoly = new Polynomial(initialReversed);
-        newPoly.sanitizePolynomial();
         return newPoly;
     }
     
@@ -109,7 +108,6 @@ public class Polynomial {
         }
 
         Polynomial newPoly = new Polynomial(initialArray);
-        newPoly.sanitizePolynomial();
         return newPoly;
     }
 
@@ -168,45 +166,7 @@ public class Polynomial {
 
         long[] initialReversed = reverse(initialArray);
         Polynomial n = new Polynomial(initialReversed);
-        n.sanitizePolynomial();
         return n;
-    }
-
-    /**
-     * Divides the current polynomial by some other polynomial.
-     *
-     * @param p The diviing polynomial.
-     * @return The result of the division.
-     */
-    public Polynomial longDivision(Polynomial p) {
-
-        if (p.degree == 0 && p.coefficients[0] == 0) {
-            throw new RuntimeException("You cannot divide by the polynomial P(x)=0");
-        }
-
-        if (this.degree < p.getDegree()) {
-            return new Polynomial();
-        }
-
-        long numeratorVal = this.coefficients[this.degree];
-        long denumVal = p.coefficients[p.degree];
-
-        long coef = numeratorVal / denumVal;
-        long exponent = this.degree - p.getDegree();
-
-        Polynomial c = new Polynomial(1, 0);
-        Polynomial e = c.exponentiation(exponent);
-        Polynomial f = e.scalePolynomial(coef);
-
-        Polynomial bc = p.multiply(f);
-        Polynomial mbc = bc.scalePolynomial(-1);
-        Polynomial ambc = this.addPolynomial(mbc);
-        ambc.sanitizePolynomial();
-        Polynomial ambcdb = ambc.longDivision(p);
-        Polynomial res = f.addPolynomial(ambcdb);
-//        res.sanitizePolynomial();
-
-        return res;
     }
 
     /**
@@ -223,7 +183,6 @@ public class Polynomial {
         }
 
         Polynomial p = new Polynomial(initialArray);
-        p.sanitizePolynomial();
         return p;
 
     }
