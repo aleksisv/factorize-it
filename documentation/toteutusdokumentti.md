@@ -32,7 +32,7 @@ tarkasteltava luku n on alkuluku, käytetään Polynomial-luokkaa, joten alkuluv
 erottuvat kuvaajassa ajallisesti selvästi vaativampina kohteina. Yhdistettyjen
 lukujen kohdalla algoritmi toimii huomattavasti nopeammin.
 
-[!Kuvaaja 1: kuinka nopeasti algoritmi toimii kullakin luvulla](documentation/first1000primetimes.png)
+![Kuvaaja 1: kuinka nopeasti algoritmi toimii kullakin luvulla](documentation/first1000primetimes.png)
 
 ## Tilavaativuus
 
