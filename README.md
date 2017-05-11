@@ -11,7 +11,7 @@ joka on tällä hetkellä teoreettisesti nopein algoritmi alkulukutestaukseen.
 
 [Testausdokumentaatio](documentation/testausdokumentaatio.md)
 
-[Toteutusdokumentaatio](documentation/toteutusdokumentaatio.md)
+[Toteutusdokumentaatio](documentation/toteutusdokumentti.md)
 
 ### Kirjanpito ja viikkoraportit
 
