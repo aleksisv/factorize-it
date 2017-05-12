@@ -34,11 +34,33 @@ lukujen kohdalla algoritmi toimii huomattavasti nopeammin.
 
 ![Kuvaaja 1: kuinka nopeasti algoritmi toimii kullakin luvulla](first1000primetimes.png)
 
+Näyttäisi siltä, että aikavaativuus on alkulukujen tapauksessa, eli huonoimmassa mahdollisessa
+tilanteessa, luokkaa O(sqrt(phi(n))log(n) * n^4). Tämä johtuu siitä, että polynomikongruenssin testaaminen
+tässä toteutuksessa käyttää apunaan polynomien kertomista ja potenssiin korottamista.
+Polynomien keskenään kertominen on aikavaativuudeltaan O(n^2), sillä en ole lähtenyt
+toteuttamaan nopeaa Fourier'n muunnosta osaksi projektiani. Mikäli olisi ollut enemmän aikaa,
+olisin yrittänyt. Toisaalta ylivuoto-ongelmien takia jokainen eksponentiaatiokerta käyttää
+aikaa lopputulospolynomin kerrointen jakojäännösten laskemiseen mod(n)-metodia käyttäen,
+joka itsessään on O(n) aikavaativuudeltaa. Näiden operaatioiden toistokertoja rajaa ylhäältä
+aikavaativuus O(sqrt(phi(n))log(n)).
+
+Aikavaativuuden huonous on tietysti harmi, sillä se tarkoittaa, että alkulukujen kohdalla
+toteuttamani algoritmi jopa naiivia seulatyyppistä algoritmia selvästi huonompi.
+Havahduin ongelmaan harmikseni liian myöhään, joten en enää ehtinyt tehdä koko
+koodin läpi myllertävää uudelleenremonttia, joka olisi korjannut ongelmat.
+
 ## Tilavaativuus
 
-Tilavaativuus on luultavasti O(n^2) luokkaa. Tämä riippuu valtavasti implementaatiosta
-ja oma implementaationi käyttää paljon tilaa polynomien säilömiseen ja laskemiseen niitä
-missään vaiheessa tuhoamatta.
+Tilavaativuus kasvaa eksponentiaalisesti siinä tapauksessa, että tarkastellaan
+alkulukua. Tämä johtuu siitä, että aks-testin yhdessä kohdassa käytetään
+apuna polynomia (X+1)^n, jonka viemä tila kasvaa eksponentiaalisesti luvun n suhteen.
+
+Kuvaajassa 2 on esitetty empiirisiä mittauksia siitä, kuinka tilankäyttö kasvaa
+sitä mukaa, kun ensimmäisiä 80 alkulukua testataan. Kuvaajasta huomaa, että
+tilankäytön kasvunopeus on selvästi kiihtyvää (viimeinen mittaustulos ylivuoto-ongelmien
+aiheuttama virhe).
+
+![Kuvaaja 2: kuinka paljon lisää tilaa lukujen testaaminen vaatii](first80primespaces.png)
 
 ## Puutteet ja parannukset
 

@@ -250,12 +250,11 @@ public class Polynomial {
      */
     public Polynomial mod(Polynomial polmod) {
         Polynomial remainder = new Polynomial(this.coefficients);
-
         while (remainder.degree >= polmod.degree) {
             long difference = remainder.degree - polmod.degree;
             Polynomial substitution = new Polynomial(polmod.coefficients)
                     .multiply(new Polynomial(1,0)).exponentiation(difference);
-
+            
             remainder = remainder.subtract(substitution);
         }
 

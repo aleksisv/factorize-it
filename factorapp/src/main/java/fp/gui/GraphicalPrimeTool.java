@@ -24,7 +24,7 @@ public class GraphicalPrimeTool implements Runnable {
     @Override
     public void run() {
         frame = new JFrame("Primality test");
-        frame.setPreferredSize(new Dimension(300, 150));
+        frame.setPreferredSize(new Dimension(600, 300));
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         createComponents(frame.getContentPane());
@@ -40,7 +40,8 @@ public class GraphicalPrimeTool implements Runnable {
      */
     private void createComponents(Container container) {
         frame.setLayout(new GridLayout(3, 1));
-        JTextField outputField = new JTextField("Is this integer a prime?");
+        JTextField outputField = new JTextField("Is this positive integer a prime? "
+                + "(For your own safety, please stick to _primes_ less than 8000)");
         container.add(outputField);
         outputField.setEnabled(false);
         JTextField intputField = new JTextField("");

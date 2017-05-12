@@ -18,7 +18,7 @@ public class EventListener implements ActionListener {
      * Constructor
      * @param test Test-execution button.
      * @param outputField Output field
-     * @param inputFiled input field
+     * @param inputField input field
      */
     public EventListener(JButton test, JTextField outputField, JTextField inputField) {
         this.app = new Application();

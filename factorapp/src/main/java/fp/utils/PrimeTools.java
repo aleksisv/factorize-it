@@ -17,26 +17,7 @@ public class PrimeTools {
         this.ONE = new Polynomial(1, 0);
         this.ZERO = new Polynomial(0);
     }
-    
-    
-
-    /**
-     * Sieve-based primality test.
-     *
-     * @param n Integer to be tested.
-     * @return Boolean that tells whether the integer n is prime or not.
-     */
-    public boolean primalityTest(long n) {
-
-        for (int j = 2; j < Math.sqrt(n); j++) {
-            if (n % j == 0) {
-                return false;
-            }
-        }
-
-        return true;
-    }
-
+ 
     /**
      * AKS Primality test that is much faster than the above one.
      *
@@ -44,11 +25,15 @@ public class PrimeTools {
      * @return Boolean that tells whether the integer n is prime or not.
      */
     public boolean aksPrimalityTest(long n) {
-
+        
+        
+        // Time complexity of this part is O(log(n)*log(log(n))) < O(n)
         if (isPerfectPower(n)) {
             return false;
         }
-
+        
+        
+        // Time complexity of this part is O(log(n)*log(log(n))) < O(n)
         long r = findTheSmallestR(n);
 
         long upperLimit = Math.min(n-1, r);
@@ -173,25 +158,64 @@ public class PrimeTools {
 
     /**
      * Function that the greatest common divisor of a and b.
-     *
+     *  Time complexity of this method is bounded above by O(log(min(a, b)))
      * @param a One integer.
      * @param b Another integer
      * @return gcd(a, b).
      */
     public long gcd(long a, long b) {
-        while (a != b) {
-            if (a > b) {
-                a -= b;
-            } else {
-                b -= a;
-            }
+        long helper = 0;
+        while(b != 0) {
+            helper = b;
+            b = a % b;
+            a = helper;
         }
         return a;
+    }
+    
+    /**
+     * Binary operation version of the gcd-method.
+     *  Time complexity of this method is bounded above by O(log(min(a, b)))
+     * @param a One integer.
+     * @param b Another integer
+        * @return gcd(a, b).
+     */
+    public long binaryGcd(long a, long b) {
+        if(a == b) {
+            return a;
+        }
+        
+        if(a == 0) {
+            return b;
+        }
+        
+        if(b == 0) {
+            return a;
+        }
+        
+        if((~a & 1) == 1) {
+            if ((b & 1) == 1) {
+                return binaryGcd(a >> 1, b);
+            } else {
+                return binaryGcd(a >> 1, b >> 1) << 1;
+            }
+        }
+        
+        if ((~b & 1) == 1) {
+            return binaryGcd(a, b >> 1);
+        }
+        
+        if (a > b) {
+            return binaryGcd((a-b)>> 1, b);
+        }
+        
+        return binaryGcd((b - a) >> 1, a);
     }
 
     /**
      * Method that checks whether a and b are coprime. That is, whether gcd(a,
      * b) = 1.
+     * 
      *
      * @param a One integer.
      * @param b Another integer
@@ -208,6 +232,8 @@ public class PrimeTools {
     /**
      * Euler's totient function. For given integer n, calculates phi(n), that is
      * the number of integers that are relative prime to n.
+     * 
+     * Time complexity is bounded by O(n).
      *
      * @param n The argument of phi(n) for which we want to calculate the number
      * of integers relative prime to it.
@@ -240,7 +266,7 @@ public class PrimeTools {
      */
     public boolean sieveErastothens(long integer) {
         for (int i = 2; i <= Math.sqrt(integer); i++) {
-            if(integer % i == 0) {
+            if(integer % i == 0 && integer != 2) {
                 return false;
             }
         }
