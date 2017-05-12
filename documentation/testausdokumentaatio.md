@@ -38,3 +38,7 @@ Mutaatiokattavuus on niin ikään korkea, noin 90%.
 
 #### Polynomial-luokka
 1. exponentiation(long n) on aikaavaativa operaatio. Esimerkiksi laskun (x+4)^32 suorittaminen tällä metodilla kestää noin 214 397 nanosekuntia. Laskun (x+4)^320 suorittaminen kestää 10 546 885 nanosekuntia, eli noin 50-kertaisesti, vaikka eksponentti on kerrottu kymmenellä.
+
+## Aika- ja tilatestit
+
+Ks. [toteutusdokumentaation](toteutusdokumentti.md)

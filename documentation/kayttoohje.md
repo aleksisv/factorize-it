@@ -2,7 +2,7 @@
 
 Navigoi projektin juureen ja aja ohjelman sisältävä .jar-tiedosto seuraavalla komennolla:
 
-`java -jar factorize-it.jar`
+`java -jar factorapp.jar`
 
 Ohjelma käynnistyy ja esiin tulee graafinen käyttöliittymä.
 
