@@ -24,7 +24,7 @@ Testit menevät läpi.
 
 ### Rivikattavuus
 
-Rivikattavuus luokkien PrimeTools ja Polynomial kohdalla on korkea, noin 93%.
+Rivikattavuus luokkien PrimeTools ja Polynomial kohdalla on korkea, noin 96%.
 
 ### Mutaatiotestaus
 
