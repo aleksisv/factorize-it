@@ -11,11 +11,11 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 
-
 /**
  * Runnable interface.
  */
 public class GraphicalPrimeTool implements Runnable {
+
     private JFrame frame;
 
     /**
@@ -33,9 +33,9 @@ public class GraphicalPrimeTool implements Runnable {
         frame.setVisible(true);
     }
 
-
     /**
      * Creates the needed components.
+     *
      * @param container Where the components are put.
      */
     private void createComponents(Container container) {

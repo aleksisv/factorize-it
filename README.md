@@ -21,7 +21,7 @@ joka on tällä hetkellä teoreettisesti nopein algoritmi alkulukutestaukseen.
 
 ### Testausdokumentaatio
 
-[Pit-raportti](http://htmlpreview.github.io/?https://github.com/aleksisv/factorize-it/blob/master/documentation/pit/201704281333/index.html)
+[Pit-raportti](http://htmlpreview.github.io/?https://github.com/aleksisv/factorize-it/blob/master/documentation/pit/201705121153/index.html)
 
 ### Javadocs-dokumentaatio
 

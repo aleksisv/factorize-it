@@ -105,7 +105,7 @@ public class PolynomialTest {
             assertEquals(p1.getCoefficients()[i], p2.getCoefficients()[i]);
         }
     }
-    
+
     @Test
     public void polyEqualsWorks1() {
         assertTrue(new Polynomial(1, 1).polyEquals(new Polynomial(0, 1, 1)));
@@ -113,17 +113,15 @@ public class PolynomialTest {
         assertFalse(new Polynomial(2, 2, 2).polyEquals(new Polynomial(1, 1, 1)));
         assertTrue(new Polynomial(0, 0, 2, 0).polyEquals(new Polynomial(2, 0)));
     }
-    
+
     @Test
     public void modWorks1() {
         Polynomial p1 = new Polynomial(3, 33, 2, 0);
         Polynomial res1 = p1.mod(3);
         Polynomial c1 = new Polynomial(0, 0, 2, 0);
-        System.out.println(res1);
-        System.out.println(c1);
         assertTrue(res1.polyEquals(c1));
     }
-    
+
     @Test
     public void modularExponentiationWorks1() {
         Polynomial p1 = new Polynomial(1, 1);
@@ -132,7 +130,7 @@ public class PolynomialTest {
         Polynomial res2 = p1.modularExponentiation(2, 2);
         assertTrue(res2.polyEquals(new Polynomial(1, 0, 1)));
     }
-    
+
     @Test
     public void modularExponentiationWorks2() {
         Polynomial p1 = new Polynomial(1, 4);
@@ -141,5 +139,5 @@ public class PolynomialTest {
         Polynomial res2 = p1.modularExponentiation(3, 2);
         assertTrue(res2.polyEquals(new Polynomial(1, 0, 0, 0)));
     }
-    
+
 }

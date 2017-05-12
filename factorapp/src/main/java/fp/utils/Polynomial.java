@@ -1,7 +1,5 @@
 package fp.utils;
 
-import java.util.Arrays;
-
 /**
  * Class whose instantiations are polynomials, i.e of the form P(x) = 5x^3 + x^2
  * + 3x + 5 or.
@@ -84,7 +82,7 @@ public class Polynomial {
         Polynomial newPoly = new Polynomial(initialReversed);
         return newPoly;
     }
-    
+
     /**
      * Subtracts one polynomial from the other.
      *
@@ -157,6 +155,9 @@ public class Polynomial {
         long[] thisReversed = reverse(this.coefficients);
         long[] thatReversed = reverse(p.coefficients);
 
+        /* We use the standard, naive formula for multiplying two polynomials.
+           this could be done more efficiently using FFT or something.
+         */
         for (int i = 0; i < thisReversed.length; i++) {
             for (int j = 0; j < thatReversed.length; j++) {
                 initialArray[i + j] += (this.coefficients[i] * p.coefficients[j]);
@@ -167,23 +168,6 @@ public class Polynomial {
         long[] initialReversed = reverse(initialArray);
         Polynomial n = new Polynomial(initialReversed);
         return n;
-    }
-    
-    /**
-     * Multiplies two polynomials. Differnet structure.
-     *
-     * @param p the polynomial to be multiplied by this polynomial.
-     */
-    public void multiply2(Polynomial p) {
-        long[] news = new long[this.coefficients.length + p.getCoefficients().length];
-        
-        for (int i = 0; i < this.coefficients.length; i++) {
-            for (int j = 0; j < p.coefficients.length; j++) {
-                news[news.length - 1-  (i + j)] = this.coefficients[i] * p.getCoefficients()[j];
-            }
-        }
-        this.setCoefficients(news);
-        this.sanitizePolynomial();
     }
 
     /**
@@ -219,11 +203,10 @@ public class Polynomial {
         }
         return newpoly;
     }
-    
-    
+
     /**
-     * Uses Polynomial.multiply() and Polynomial.mod() to calculate the exponential
-     * of the polynomial when we take into account some modulus.
+     * Uses Polynomial.multiply() and Polynomial.mod() to calculate the
+     * exponential of the polynomial when we take into account some modulus.
      *
      * @param exponent The exponent used to calculate the power of the
      * polynomial.
@@ -233,7 +216,7 @@ public class Polynomial {
     public Polynomial modularExponentiation(long exponent, long modulo) {
         Polynomial copyPoly = this.copyThisPoly();
         Polynomial resultPoly = this.copyThisPoly();
-        while(exponent>1) {
+        while (exponent > 1) {
             resultPoly = resultPoly.multiply(copyPoly);
             resultPoly = resultPoly.mod(modulo);
             exponent--;
@@ -241,9 +224,10 @@ public class Polynomial {
         resultPoly.sanitizePolynomial();
         return resultPoly;
     }
-    
+
     /**
-     * Uses calculates the congruence of polynomial modulo some other polynomial.
+     * Uses calculates the congruence of polynomial modulo some other
+     * polynomial.
      *
      * @param polmod The modulo. This is of the form x^n - a.
      * @return The resulting polynomial.
@@ -253,15 +237,14 @@ public class Polynomial {
         while (remainder.degree >= polmod.degree) {
             long difference = remainder.degree - polmod.degree;
             Polynomial substitution = new Polynomial(polmod.coefficients)
-                    .multiply(new Polynomial(1,0)).exponentiation(difference);
-            
+                    .multiply(new Polynomial(1, 0)).exponentiation(difference);
+
             remainder = remainder.subtract(substitution);
         }
 
         return remainder;
     }
-    
-    
+
     /**
      * Uses calculates the congruence of polynomial modulo some integer.
      *
@@ -275,20 +258,21 @@ public class Polynomial {
         this.sanitizePolynomial();
         return this;
     }
-    
+
     /**
      * Checks if two polynomials are the same.
      *
      * @param p The polynomial against which we are comparing this one.
-     * @return Truth value. If true, the polynomials are equal. If false, they are not.
+     * @return Truth value. If true, the polynomials are equal. If false, they
+     * are not.
      */
     public boolean polyEquals(Polynomial p) {
-        if(this.coefficients.length != p.getCoefficients().length) {
+        if (this.coefficients.length != p.getCoefficients().length) {
             return false;
         }
-        
+
         for (int i = 0; i < this.coefficients.length; i++) {
-            if(this.coefficients[i] != p.getCoefficients()[i]) {
+            if (this.coefficients[i] != p.getCoefficients()[i]) {
                 return false;
             }
         }
@@ -318,7 +302,6 @@ public class Polynomial {
     public long getDegree() {
         return degree;
     }
-    
 
     /**
      * Makes a copy of the present polynomial.

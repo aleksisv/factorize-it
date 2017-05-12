@@ -42,9 +42,9 @@ public class PrimalityTest implements Command {
         Pattern p = Pattern.compile("\\d+");
         Matcher m = p.matcher(this.inputField.getText());
         boolean b = m.matches();
-        if(!b) {
-           this.outputField.setText("Enter a positive integer, please!");
-           return;
+        if (!b) {
+            this.outputField.setText("Enter a positive integer, please!");
+            return;
         }
 
         long testedInteger = Long.parseLong(this.inputField.getText());

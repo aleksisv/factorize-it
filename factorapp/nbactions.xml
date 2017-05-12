@@ -21,6 +21,7 @@
             <goal>javadoc:javadoc</goal>
         </goals>
     </action>
+    
     <action>
         <actionName>CUSTOM-checkstyle</actionName>
         <displayName>Checkstyle</displayName>

@@ -8,6 +8,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class PrimeToolsTest {
+
     private PrimeTools p;
 
     public PrimeToolsTest() {
@@ -33,14 +34,14 @@ public class PrimeToolsTest {
     /**
      *
      */
-    @Test(timeout=1000)
+    @Test(timeout = 1000)
     public void multiplicativeOrderWorks1() {
         assertEquals(p.multiplicativeOrd(7, 4), 3);
         assertEquals(p.multiplicativeOrd(122, 11), 4);
         assertEquals(p.multiplicativeOrd(37, 60), 12);
     }
 
-    @Test(timeout=1000)
+    @Test(timeout = 1000)
     public void gcdWorks1() {
         assertEquals(p.gcd(2, 3), 1);
         for (int i = 1; i < 10; i++) {
@@ -48,20 +49,27 @@ public class PrimeToolsTest {
                 assertEquals(p.gcd(i, j), p.gcd(j, i));
             }
         }
+        assertEquals(p.gcd(123, 23), 1);
         assertEquals(p.gcd(123512, 13245), 1);
         assertEquals(p.gcd(14000, 13245022), 14);
         assertEquals(p.gcd(5, 4), 1);
     }
-    
-        @Test(timeout=1000)
+
+    @Test(timeout = 1000)
     public void binarygcdWorks1() {
-       
+        assertEquals(p.binaryGcd(2, 3), 1);
+        for (int i = 1; i < 10; i++) {
+            for (int j = 1; j < 10; j++) {
+                assertEquals(p.binaryGcd(i, j), p.binaryGcd(j, i));
+            }
+        }
+        assertEquals(p.binaryGcd(123, 23), 1);
         assertEquals(p.binaryGcd(123512, 13245), 1);
         assertEquals(p.binaryGcd(14000, 13245022), 14);
         assertEquals(p.binaryGcd(5, 4), 1);
     }
 
-    @Test(timeout=1000)
+    @Test(timeout = 1000)
     public void areCoprimeWorks() {
         assertTrue(p.areCoprime(23, 45));
         assertFalse(p.areCoprime(23, 46));
@@ -76,7 +84,7 @@ public class PrimeToolsTest {
         assertFalse(p.isPerfectPower(3));
     }
 
-    @Test(timeout=1000)
+    @Test(timeout = 1000)
     public void isPerfectPowerWorksForLarge1() {
         assertTrue(p.isPerfectPower(15625));
         assertTrue(p.isPerfectPower(46656));
@@ -104,7 +112,7 @@ public class PrimeToolsTest {
 
     }
 
-    @Test(timeout=1000)
+    @Test(timeout = 1000)
     public void phiWorks1() {
         int[] correctAnswers = {4, 10, 4, 12, 6, 8, 8, 16, 6, 18};
         for (int i = 0; i < 10; i++) {
@@ -124,12 +132,17 @@ public class PrimeToolsTest {
         assertTrue(p.aksPrimalityTest(2));
         assertFalse(p.aksPrimalityTest(4));
     }
-    
+
     @Test
     public void aksWorks2() {
-        assertTrue(p.aksPrimalityTest(139));
+        assertFalse(p.aksPrimalityTest(8));
+        assertTrue(p.aksPrimalityTest(37));
+        assertFalse(p.aksPrimalityTest(15));
+        assertTrue(p.aksPrimalityTest(443));
+        assertFalse(p.aksPrimalityTest(75));
+        assertFalse(p.aksPrimalityTest(1225));
     }
-    
+
     @Test
     public void sieveOfErostathesWorks() {
         assertTrue(p.sieveErastothens(199));

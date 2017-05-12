@@ -10,6 +10,7 @@ import java.math.RoundingMode;
  * prime or not.
  */
 public class PrimeTools {
+
     private Polynomial ONE;
     private Polynomial ZERO;
 
@@ -17,7 +18,7 @@ public class PrimeTools {
         this.ONE = new Polynomial(1, 0);
         this.ZERO = new Polynomial(0);
     }
- 
+
     /**
      * AKS Primality test that is much faster than the above one.
      *
@@ -25,20 +26,15 @@ public class PrimeTools {
      * @return Boolean that tells whether the integer n is prime or not.
      */
     public boolean aksPrimalityTest(long n) {
-        
-        
-        // Time complexity of this part is O(log(n)*log(log(n))) < O(n)
+
         if (isPerfectPower(n)) {
             return false;
         }
-        
-        
-        // Time complexity of this part is O(log(n)*log(log(n))) < O(n)
+
         long r = findTheSmallestR(n);
 
-        long upperLimit = Math.min(n-1, r);
-        
-        
+        long upperLimit = Math.min(n - 1, r);
+
         for (long i = 2; i <= upperLimit; i++) {
             if (n % i == 0) {
                 return false;
@@ -48,27 +44,30 @@ public class PrimeTools {
         if (n <= r) {
             return true;
         }
-        long lim = (long) Math.floor( Math.sqrt( phi(r))*(Math.log(n) / Math.log(2)));
+
+        // Limit for testing the polynomial congruence.
+        long lim = (long) Math.floor(Math.sqrt(phi(r)) * (Math.log(n) / Math.log(2)));
 
         Polynomial poly2 = new Polynomial(1, 0).modularExponentiation(n, n);
         Polynomial moduloPoly = new Polynomial(1, 0).exponentiation(r).addPolynomial(new Polynomial(-1));
         Polynomial zeroPoly = new Polynomial(0);
 
+        // If (X+1)^n != X^n + a (mod X^r, n), n is a prime number.
         for (int a = 2; a <= lim; a++) {
             Polynomial poly1 = new Polynomial(1, a).modularExponentiation(n, n);
 
             Polynomial poly2a = poly2.addPolynomial(new Polynomial(a));
-            
+
             Polynomial poly = poly1.subtract(poly2a);
 
             Polynomial remainder = poly.mod(moduloPoly);
-            
-            if(!remainder.polyEquals(zeroPoly)) {
+
+            if (!remainder.polyEquals(zeroPoly)) {
                 return false;
             }
         }
-        
 
+        // Otherwise, the number is a prime.
         return true;
     }
 
@@ -134,7 +133,7 @@ public class PrimeTools {
 
         return false;
     }
-    
+
     /**
      * Function that determines n^exponent modulo mod.
      *
@@ -157,65 +156,67 @@ public class PrimeTools {
     }
 
     /**
-     * Function that the greatest common divisor of a and b.
-     *  Time complexity of this method is bounded above by O(log(min(a, b)))
+     * Function that the greatest common divisor of a and b. Time complexity of
+     * this method is bounded above by O(log(min(a, b)))
+     *
      * @param a One integer.
      * @param b Another integer
      * @return gcd(a, b).
      */
     public long gcd(long a, long b) {
         long helper = 0;
-        while(b != 0) {
+        while (b != 0) {
             helper = b;
             b = a % b;
             a = helper;
         }
         return a;
     }
-    
+
     /**
-     * Binary operation version of the gcd-method.
-     *  Time complexity of this method is bounded above by O(log(min(a, b)))
+     * Binary operation version of the gcd-method. Time complexity of this
+     * method is bounded above by O(log(min(a, b)))
+     *
      * @param a One integer.
      * @param b Another integer
-        * @return gcd(a, b).
+     * @return gcd(a, b).
      */
     public long binaryGcd(long a, long b) {
-        if(a == b) {
+        if (a == b) {
             return a;
         }
-        
-        if(a == 0) {
+
+        if (a == 0) {
             return b;
         }
-        
-        if(b == 0) {
+
+        if (b == 0) {
             return a;
         }
-        
-        if((~a & 1) == 1) {
+
+        if ((~a & 1) == 1) {
             if ((b & 1) == 1) {
                 return binaryGcd(a >> 1, b);
             } else {
                 return binaryGcd(a >> 1, b >> 1) << 1;
             }
         }
-        
+
         if ((~b & 1) == 1) {
             return binaryGcd(a, b >> 1);
         }
-        
+
         if (a > b) {
-            return binaryGcd((a-b)>> 1, b);
+            return binaryGcd((a - b) >> 1, b);
         }
-        
+
         return binaryGcd((b - a) >> 1, a);
     }
 
     /**
      * Method that checks whether a and b are coprime. That is, whether gcd(a,
      * b) = 1.
-     * 
+     *
      *
      * @param a One integer.
      * @param b Another integer
@@ -232,7 +233,7 @@ public class PrimeTools {
     /**
      * Euler's totient function. For given integer n, calculates phi(n), that is
      * the number of integers that are relative prime to n.
-     * 
+     *
      * Time complexity is bounded by O(n).
      *
      * @param n The argument of phi(n) for which we want to calculate the number
@@ -257,7 +258,7 @@ public class PrimeTools {
 
         return numCoprime;
     }
-    
+
     /**
      * Sieve of Erastothenes. The naive way to test primality.
      *
@@ -266,7 +267,7 @@ public class PrimeTools {
      */
     public boolean sieveErastothens(long integer) {
         for (int i = 2; i <= Math.sqrt(integer); i++) {
-            if(integer % i == 0 && integer != 2) {
+            if (integer % i == 0 && integer != 2) {
                 return false;
             }
         }

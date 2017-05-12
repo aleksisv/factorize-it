@@ -1,0 +1,4057 @@
+<html>
+<head>
+<style type='text/css'>
+html, body, div, span, p, blockquote, pre {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+
+body{
+	line-height: 1;
+	color: black;
+	background: white;
+	margin-left: 20px;
+}
+
+.src { 
+border: 1px solid #dddddd;
+padding-top: 10px;
+padding-right: 5px;
+padding-left: 5px;
+}
+
+
+.covered {background-color: #ddffdd}
+.uncovered {background-color: #ffdddd}
+.killed {background-color: #aaffaa}
+.survived {background-color: #ffaaaa}
+.uncertain {background-color: #dde7ef}
+.run_error {background-color: #dde7ef}
+.na {background-color: #eeeeee}
+.timed_out {background-color: #dde7ef}
+.non_viable {background-color: #aaffaa}
+.memory_error {background-color: #dde7ef}
+.not_started {background-color: #dde7ef; color : red}
+.no_coverage {background-color: #ffaaaa}
+
+</style>
+
+</head>
+<body>
+
+
+<h1>PrimeTools.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_1'/>
+1
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_1'></a>
+</td>
+<td class=''><pre><span  class=''>package fp.utils;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_2'/>
+2
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_2'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_3'/>
+3
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_3'></a>
+</td>
+<td class=''><pre><span  class=''>import java.math.BigDecimal;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_4'/>
+4
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_4'></a>
+</td>
+<td class=''><pre><span  class=''>import java.math.BigInteger;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_5'/>
+5
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_5'></a>
+</td>
+<td class=''><pre><span  class=''>import java.math.MathContext;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_6'/>
+6
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_6'></a>
+</td>
+<td class=''><pre><span  class=''>import java.math.RoundingMode;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_7'/>
+7
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_7'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_8'/>
+8
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_8'></a>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_9'/>
+9
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_9'></a>
+</td>
+<td class=''><pre><span  class=''> * This class contain the necessary tools for testing whether some integer is</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_10'/>
+10
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_10'></a>
+</td>
+<td class=''><pre><span  class=''> * prime or not.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_11'/>
+11
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_11'></a>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_12'/>
+12
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_12'></a>
+</td>
+<td class=''><pre><span  class=''>public class PrimeTools {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_13'/>
+13
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_13'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_14'/>
+14
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_14'></a>
+</td>
+<td class=''><pre><span  class=''>    private Polynomial ONE;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_15'/>
+15
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_15'></a>
+</td>
+<td class=''><pre><span  class=''>    private Polynomial ZERO;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_16'/>
+16
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_16'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_17'/>
+17
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_17'></a>
+</td>
+<td class='covered'><pre><span  class=''>    public PrimeTools() {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_18'/>
+18
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_18'></a>
+</td>
+<td class='covered'><pre><span  class=''>        this.ONE = new Polynomial(1, 0);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_19'/>
+19
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_19'></a>
+</td>
+<td class='covered'><pre><span  class=''>        this.ZERO = new Polynomial(0);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_20'/>
+20
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_20'></a>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_21'/>
+21
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_21'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_22'/>
+22
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_22'></a>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_23'/>
+23
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_23'></a>
+</td>
+<td class=''><pre><span  class=''>     * AKS Primality test that is much faster than the above one.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_24'/>
+24
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_24'></a>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_25'/>
+25
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_25'></a>
+</td>
+<td class=''><pre><span  class=''>     * @param n Integer to be tested.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_26'/>
+26
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_26'></a>
+</td>
+<td class=''><pre><span  class=''>     * @return Boolean that tells whether the integer n is prime or not.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_27'/>
+27
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_27'></a>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_28'/>
+28
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_28'></a>
+</td>
+<td class=''><pre><span  class=''>    public boolean aksPrimalityTest(long n) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_29'/>
+29
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_29'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_30'/>
+30
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_30'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (isPerfectPower(n)) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_31'/>
+31
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_31'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>            return false;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_32'/>
+32
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_32'></a>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_33'/>
+33
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_33'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_34'/>
+34
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_34'></a>
+</td>
+<td class='covered'><pre><span  class=''>        long r = findTheSmallestR(n);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_35'/>
+35
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_35'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_36'/>
+36
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_36'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        long upperLimit = Math.min(n - 1, r);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_37'/>
+37
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_37'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_38'/>
+38
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_38'>3</a>
+</td>
+<td class='covered'><pre><span  class='survived'>        for (long i = 2; i &#60;= upperLimit; i++) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_39'/>
+39
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_39'>2</a>
+</td>
+<td class='covered'><pre><span  class='killed'>            if (n % i == 0) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_40'/>
+40
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_40'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>                return false;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_41'/>
+41
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_41'></a>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_42'/>
+42
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_42'></a>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_43'/>
+43
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_43'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_44'/>
+44
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_44'>2</a>
+</td>
+<td class='covered'><pre><span  class='survived'>        if (n &#60;= r) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_45'/>
+45
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_45'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>            return true;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_46'/>
+46
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_46'></a>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_47'/>
+47
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_47'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_48'/>
+48
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_48'></a>
+</td>
+<td class=''><pre><span  class=''>        // Limit for testing the polynomial congruence.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_49'/>
+49
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_49'>2</a>
+</td>
+<td class='covered'><pre><span  class='survived'>        long lim = (long) Math.floor(Math.sqrt(phi(r)) * (Math.log(n) / Math.log(2)));</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_50'/>
+50
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_50'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_51'/>
+51
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_51'></a>
+</td>
+<td class='covered'><pre><span  class=''>        Polynomial poly2 = new Polynomial(1, 0).modularExponentiation(n, n);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_52'/>
+52
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_52'></a>
+</td>
+<td class='covered'><pre><span  class=''>        Polynomial moduloPoly = new Polynomial(1, 0).exponentiation(r).addPolynomial(new Polynomial(-1));</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_53'/>
+53
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_53'></a>
+</td>
+<td class='covered'><pre><span  class=''>        Polynomial zeroPoly = new Polynomial(0);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_54'/>
+54
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_54'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_55'/>
+55
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_55'></a>
+</td>
+<td class=''><pre><span  class=''>        // If (X+1)^n != X^n + a (mod X^r, n), n is a prime number.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_56'/>
+56
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_56'>3</a>
+</td>
+<td class='covered'><pre><span  class='survived'>        for (int a = 2; a &#60;= lim; a++) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_57'/>
+57
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_57'></a>
+</td>
+<td class='covered'><pre><span  class=''>            Polynomial poly1 = new Polynomial(1, a).modularExponentiation(n, n);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_58'/>
+58
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_58'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_59'/>
+59
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_59'></a>
+</td>
+<td class='covered'><pre><span  class=''>            Polynomial poly2a = poly2.addPolynomial(new Polynomial(a));</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_60'/>
+60
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_60'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_61'/>
+61
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_61'></a>
+</td>
+<td class='covered'><pre><span  class=''>            Polynomial poly = poly1.subtract(poly2a);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_62'/>
+62
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_62'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_63'/>
+63
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_63'></a>
+</td>
+<td class='covered'><pre><span  class=''>            Polynomial remainder = poly.mod(moduloPoly);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_64'/>
+64
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_64'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_65'/>
+65
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_65'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>            if (!remainder.polyEquals(zeroPoly)) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_66'/>
+66
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_66'>1</a>
+</td>
+<td class='uncovered'><pre><span  class='survived'>                return false;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_67'/>
+67
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_67'></a>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_68'/>
+68
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_68'></a>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_69'/>
+69
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_69'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_70'/>
+70
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_70'></a>
+</td>
+<td class=''><pre><span  class=''>        // Otherwise, the number is a prime.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_71'/>
+71
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_71'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        return true;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_72'/>
+72
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_72'></a>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_73'/>
+73
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_73'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_74'/>
+74
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_74'></a>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_75'/>
+75
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_75'></a>
+</td>
+<td class=''><pre><span  class=''>     * Finds the smallest r for which r is bigger than log_2(n).</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_76'/>
+76
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_76'></a>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_77'/>
+77
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_77'></a>
+</td>
+<td class=''><pre><span  class=''>     * @param n The prime relative to which r is calculated.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_78'/>
+78
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_78'></a>
+</td>
+<td class=''><pre><span  class=''>     * @return The smallest r satisfying the requirement.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_79'/>
+79
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_79'></a>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_80'/>
+80
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_80'></a>
+</td>
+<td class=''><pre><span  class=''>    public long findTheSmallestR(long n) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_81'/>
+81
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_81'></a>
+</td>
+<td class='covered'><pre><span  class=''>        int r = 1;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_82'/>
+82
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_82'></a>
+</td>
+<td class=''><pre><span  class=''>        while (true) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_83'/>
+83
+</td>
+<td class='uncertain'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_83'>1</a>
+</td>
+<td class='covered'><pre><span  class='uncertain'>            r++;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_84'/>
+84
+</td>
+<td class='uncertain'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_84'>1</a>
+</td>
+<td class='covered'><pre><span  class='uncertain'>            if (!areCoprime(n, r)) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_85'/>
+85
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_85'></a>
+</td>
+<td class='covered'><pre><span  class=''>                continue;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_86'/>
+86
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_86'></a>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_87'/>
+87
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_87'>3</a>
+</td>
+<td class='covered'><pre><span  class='survived'>            if (multiplicativeOrd(r, n) &#62; Math.pow(Math.log(n) / Math.log(2), 2)) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_88'/>
+88
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_88'></a>
+</td>
+<td class='covered'><pre><span  class=''>                break;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_89'/>
+89
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_89'></a>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_90'/>
+90
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_90'></a>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_91'/>
+91
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_91'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        return r;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_92'/>
+92
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_92'></a>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_93'/>
+93
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_93'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_94'/>
+94
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_94'></a>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_95'/>
+95
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_95'></a>
+</td>
+<td class=''><pre><span  class=''>     * Checks the multiplicative order of a modulo n.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_96'/>
+96
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_96'></a>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_97'/>
+97
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_97'></a>
+</td>
+<td class=''><pre><span  class=''>     * @param n Modulo.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_98'/>
+98
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_98'></a>
+</td>
+<td class=''><pre><span  class=''>     * @param a Integers whose multiplicative order needs to be counted.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_99'/>
+99
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_99'></a>
+</td>
+<td class=''><pre><span  class=''>     * @return The multiplicative order of a modulo n.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_100'/>
+100
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_100'></a>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_101'/>
+101
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_101'></a>
+</td>
+<td class=''><pre><span  class=''>    public long multiplicativeOrd(long n, long a) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_102'/>
+102
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_102'></a>
+</td>
+<td class='covered'><pre><span  class=''>        long i = 1;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_103'/>
+103
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_103'></a>
+</td>
+<td class=''><pre><span  class=''>        while (true) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_104'/>
+104
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_104'></a>
+</td>
+<td class='covered'><pre><span  class=''>            long res = modularExponentiation(a, i, n);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_105'/>
+105
+</td>
+<td class='uncertain'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_105'>1</a>
+</td>
+<td class='covered'><pre><span  class='uncertain'>            if (res == 1L) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_106'/>
+106
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_106'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>                return i;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_107'/>
+107
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_107'></a>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_108'/>
+108
+</td>
+<td class='uncertain'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_108'>1</a>
+</td>
+<td class='covered'><pre><span  class='uncertain'>            i++;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_109'/>
+109
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_109'></a>
+</td>
+<td class='covered'><pre><span  class=''>        }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_110'/>
+110
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_110'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_111'/>
+111
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_111'></a>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_112'/>
+112
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_112'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_113'/>
+113
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_113'></a>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_114'/>
+114
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_114'></a>
+</td>
+<td class=''><pre><span  class=''>     * Slower method for testing if an integer is a perfect power.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_115'/>
+115
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_115'></a>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_116'/>
+116
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_116'></a>
+</td>
+<td class=''><pre><span  class=''>     * @param n Integer to be tested.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_117'/>
+117
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_117'></a>
+</td>
+<td class=''><pre><span  class=''>     * @return True if it is, false if it isn&#39;t.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_118'/>
+118
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_118'></a>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_119'/>
+119
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_119'></a>
+</td>
+<td class=''><pre><span  class=''>    public boolean isPerfectPower(long n) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_120'/>
+120
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_120'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_121'/>
+121
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_121'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (n == 1) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_122'/>
+122
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_122'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>            return true;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_123'/>
+123
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_123'></a>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_124'/>
+124
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_124'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_125'/>
+125
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_125'>4</a>
+</td>
+<td class='covered'><pre><span  class='survived'>        for (int i = 2; i &#60; Math.log(n) + 1; i++) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_126'/>
+126
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_126'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>            double power = (double) 1 / (double) i;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_127'/>
+127
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_127'></a>
+</td>
+<td class='covered'><pre><span  class=''>            double a = Math.pow(n, power);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_128'/>
+128
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_128'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>            double diff = Math.abs(a - Math.round(a));</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_129'/>
+129
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_129'>2</a>
+</td>
+<td class='covered'><pre><span  class='survived'>            if (diff &#60; 0.000000001) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_130'/>
+130
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_130'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>                return true;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_131'/>
+131
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_131'></a>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_132'/>
+132
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_132'></a>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_133'/>
+133
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_133'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_134'/>
+134
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_134'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        return false;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_135'/>
+135
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_135'></a>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_136'/>
+136
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_136'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_137'/>
+137
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_137'></a>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_138'/>
+138
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_138'></a>
+</td>
+<td class=''><pre><span  class=''>     * Function that determines n^exponent modulo mod.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_139'/>
+139
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_139'></a>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_140'/>
+140
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_140'></a>
+</td>
+<td class=''><pre><span  class=''>     * @param n Base.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_141'/>
+141
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_141'></a>
+</td>
+<td class=''><pre><span  class=''>     * @param exponent Exponent.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_142'/>
+142
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_142'></a>
+</td>
+<td class=''><pre><span  class=''>     * @param mod Modulo.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_143'/>
+143
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_143'></a>
+</td>
+<td class=''><pre><span  class=''>     * @return n^exponent (Mod mod).</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_144'/>
+144
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_144'></a>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_145'/>
+145
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_145'></a>
+</td>
+<td class=''><pre><span  class=''>    public long modularExponentiation(long n, long exponent, long mod) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_146'/>
+146
+</td>
+<td class='uncertain'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_146'>1</a>
+</td>
+<td class='covered'><pre><span  class='uncertain'>        if (mod == 1) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_147'/>
+147
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_147'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>            return 0;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_148'/>
+148
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_148'></a>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_149'/>
+149
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_149'></a>
+</td>
+<td class='covered'><pre><span  class=''>        long c = 1L;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_150'/>
+150
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_150'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_151'/>
+151
+</td>
+<td class='uncertain'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_151'>3</a>
+</td>
+<td class='covered'><pre><span  class='uncertain'>        for (long i = 1; i &#60;= exponent; i++) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_152'/>
+152
+</td>
+<td class='uncertain'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_152'>2</a>
+</td>
+<td class='covered'><pre><span  class='uncertain'>            c = (c * n) % mod;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_153'/>
+153
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_153'></a>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_154'/>
+154
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_154'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_155'/>
+155
+</td>
+<td class='uncertain'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_155'>1</a>
+</td>
+<td class='covered'><pre><span  class='uncertain'>        return c;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_156'/>
+156
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_156'></a>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_157'/>
+157
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_157'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_158'/>
+158
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_158'></a>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_159'/>
+159
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_159'></a>
+</td>
+<td class=''><pre><span  class=''>     * Function that the greatest common divisor of a and b. Time complexity of</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_160'/>
+160
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_160'></a>
+</td>
+<td class=''><pre><span  class=''>     * this method is bounded above by O(log(min(a, b)))</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_161'/>
+161
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_161'></a>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_162'/>
+162
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_162'></a>
+</td>
+<td class=''><pre><span  class=''>     * @param a One integer.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_163'/>
+163
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_163'></a>
+</td>
+<td class=''><pre><span  class=''>     * @param b Another integer</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_164'/>
+164
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_164'></a>
+</td>
+<td class=''><pre><span  class=''>     * @return gcd(a, b).</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_165'/>
+165
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_165'></a>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_166'/>
+166
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_166'></a>
+</td>
+<td class=''><pre><span  class=''>    public long gcd(long a, long b) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_167'/>
+167
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_167'></a>
+</td>
+<td class='covered'><pre><span  class=''>        long helper = 0;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_168'/>
+168
+</td>
+<td class='uncertain'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_168'>1</a>
+</td>
+<td class='covered'><pre><span  class='uncertain'>        while (b != 0) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_169'/>
+169
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_169'></a>
+</td>
+<td class='covered'><pre><span  class=''>            helper = b;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_170'/>
+170
+</td>
+<td class='uncertain'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_170'>1</a>
+</td>
+<td class='covered'><pre><span  class='uncertain'>            b = a % b;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_171'/>
+171
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_171'></a>
+</td>
+<td class='covered'><pre><span  class=''>            a = helper;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_172'/>
+172
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_172'></a>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_173'/>
+173
+</td>
+<td class='uncertain'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_173'>1</a>
+</td>
+<td class='covered'><pre><span  class='uncertain'>        return a;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_174'/>
+174
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_174'></a>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_175'/>
+175
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_175'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_176'/>
+176
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_176'></a>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_177'/>
+177
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_177'></a>
+</td>
+<td class=''><pre><span  class=''>     * Binary operation version of the gcd-method. Time complexity of this</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_178'/>
+178
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_178'></a>
+</td>
+<td class=''><pre><span  class=''>     * method is bounded above by O(log(min(a, b)))</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_179'/>
+179
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_179'></a>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_180'/>
+180
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_180'></a>
+</td>
+<td class=''><pre><span  class=''>     * @param a One integer.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_181'/>
+181
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_181'></a>
+</td>
+<td class=''><pre><span  class=''>     * @param b Another integer</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_182'/>
+182
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_182'></a>
+</td>
+<td class=''><pre><span  class=''>     * @return gcd(a, b).</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_183'/>
+183
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_183'></a>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_184'/>
+184
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_184'></a>
+</td>
+<td class=''><pre><span  class=''>    public long binaryGcd(long a, long b) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_185'/>
+185
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_185'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (a == b) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_186'/>
+186
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_186'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>            return a;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_187'/>
+187
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_187'></a>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_188'/>
+188
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_188'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_189'/>
+189
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_189'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (a == 0) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_190'/>
+190
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_190'>1</a>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            return b;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_191'/>
+191
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_191'></a>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_192'/>
+192
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_192'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_193'/>
+193
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_193'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (b == 0) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_194'/>
+194
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_194'>1</a>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            return a;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_195'/>
+195
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_195'></a>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_196'/>
+196
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_196'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_197'/>
+197
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_197'>3</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        if ((~a &#38; 1) == 1) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_198'/>
+198
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_198'>2</a>
+</td>
+<td class='covered'><pre><span  class='killed'>            if ((b &#38; 1) == 1) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_199'/>
+199
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_199'>2</a>
+</td>
+<td class='covered'><pre><span  class='killed'>                return binaryGcd(a &#62;&#62; 1, b);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_200'/>
+200
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_200'></a>
+</td>
+<td class=''><pre><span  class=''>            } else {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_201'/>
+201
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_201'>4</a>
+</td>
+<td class='covered'><pre><span  class='killed'>                return binaryGcd(a &#62;&#62; 1, b &#62;&#62; 1) &#60;&#60; 1;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_202'/>
+202
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_202'></a>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_203'/>
+203
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_203'></a>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_204'/>
+204
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_204'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_205'/>
+205
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_205'>3</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        if ((~b &#38; 1) == 1) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_206'/>
+206
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_206'>2</a>
+</td>
+<td class='covered'><pre><span  class='killed'>            return binaryGcd(a, b &#62;&#62; 1);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_207'/>
+207
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_207'></a>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_208'/>
+208
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_208'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_209'/>
+209
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_209'>2</a>
+</td>
+<td class='covered'><pre><span  class='survived'>        if (a &#62; b) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_210'/>
+210
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_210'>3</a>
+</td>
+<td class='covered'><pre><span  class='survived'>            return binaryGcd((a - b) &#62;&#62; 1, b);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_211'/>
+211
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_211'></a>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_212'/>
+212
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_212'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_213'/>
+213
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_213'>3</a>
+</td>
+<td class='covered'><pre><span  class='survived'>        return binaryGcd((b - a) &#62;&#62; 1, a);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_214'/>
+214
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_214'></a>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_215'/>
+215
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_215'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_216'/>
+216
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_216'></a>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_217'/>
+217
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_217'></a>
+</td>
+<td class=''><pre><span  class=''>     * Method that checks whether a and b are coprime. That is, whether gcd(a,</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_218'/>
+218
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_218'></a>
+</td>
+<td class=''><pre><span  class=''>     * b) = 1.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_219'/>
+219
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_219'></a>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_220'/>
+220
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_220'></a>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_221'/>
+221
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_221'></a>
+</td>
+<td class=''><pre><span  class=''>     * @param a One integer.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_222'/>
+222
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_222'></a>
+</td>
+<td class=''><pre><span  class=''>     * @param b Another integer</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_223'/>
+223
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_223'></a>
+</td>
+<td class=''><pre><span  class=''>     * @return True, if gcd(a, b) = 1, otherwise false.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_224'/>
+224
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_224'></a>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_225'/>
+225
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_225'></a>
+</td>
+<td class=''><pre><span  class=''>    public boolean areCoprime(long a, long b) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_226'/>
+226
+</td>
+<td class='uncertain'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_226'>1</a>
+</td>
+<td class='covered'><pre><span  class='uncertain'>        if (gcd(a, b) == 1) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_227'/>
+227
+</td>
+<td class='uncertain'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_227'>1</a>
+</td>
+<td class='covered'><pre><span  class='uncertain'>            return true;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_228'/>
+228
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_228'></a>
+</td>
+<td class=''><pre><span  class=''>        } else {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_229'/>
+229
+</td>
+<td class='uncertain'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_229'>1</a>
+</td>
+<td class='covered'><pre><span  class='uncertain'>            return false;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_230'/>
+230
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_230'></a>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_231'/>
+231
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_231'></a>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_232'/>
+232
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_232'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_233'/>
+233
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_233'></a>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_234'/>
+234
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_234'></a>
+</td>
+<td class=''><pre><span  class=''>     * Euler&#39;s totient function. For given integer n, calculates phi(n), that is</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_235'/>
+235
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_235'></a>
+</td>
+<td class=''><pre><span  class=''>     * the number of integers that are relative prime to n.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_236'/>
+236
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_236'></a>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_237'/>
+237
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_237'></a>
+</td>
+<td class=''><pre><span  class=''>     * Time complexity is bounded by O(n).</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_238'/>
+238
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_238'></a>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_239'/>
+239
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_239'></a>
+</td>
+<td class=''><pre><span  class=''>     * @param n The argument of phi(n) for which we want to calculate the number</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_240'/>
+240
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_240'></a>
+</td>
+<td class=''><pre><span  class=''>     * of integers relative prime to it.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_241'/>
+241
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_241'></a>
+</td>
+<td class=''><pre><span  class=''>     * @return The number of integers relative prime to n.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_242'/>
+242
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_242'></a>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_243'/>
+243
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_243'></a>
+</td>
+<td class=''><pre><span  class=''>    public long phi(long n) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_244'/>
+244
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_244'></a>
+</td>
+<td class='covered'><pre><span  class=''>        long numCoprime = n;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_245'/>
+245
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_245'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_246'/>
+246
+</td>
+<td class='uncertain'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_246'>4</a>
+</td>
+<td class='covered'><pre><span  class='uncertain'>        for (int i = 2; i * i &#60;= n; i++) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_247'/>
+247
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_247'>2</a>
+</td>
+<td class='covered'><pre><span  class='killed'>            if (n % i == 0) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_248'/>
+248
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_248'>2</a>
+</td>
+<td class='covered'><pre><span  class='killed'>                while (n % i == 0) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_249'/>
+249
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_249'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>                    n /= i;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_250'/>
+250
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_250'></a>
+</td>
+<td class=''><pre><span  class=''>                }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_251'/>
+251
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_251'>2</a>
+</td>
+<td class='covered'><pre><span  class='killed'>                numCoprime -= (numCoprime / i);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_252'/>
+252
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_252'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_253'/>
+253
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_253'></a>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_254'/>
+254
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_254'></a>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_255'/>
+255
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_255'>2</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (n &#62;= 2) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_256'/>
+256
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_256'>2</a>
+</td>
+<td class='covered'><pre><span  class='killed'>            numCoprime -= (numCoprime / n);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_257'/>
+257
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_257'></a>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_258'/>
+258
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_258'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_259'/>
+259
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_259'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        return numCoprime;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_260'/>
+260
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_260'></a>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_261'/>
+261
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_261'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_262'/>
+262
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_262'></a>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_263'/>
+263
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_263'></a>
+</td>
+<td class=''><pre><span  class=''>     * Sieve of Erastothenes. The naive way to test primality.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_264'/>
+264
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_264'></a>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_265'/>
+265
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_265'></a>
+</td>
+<td class=''><pre><span  class=''>     * @param integer The integer to be tested.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_266'/>
+266
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_266'></a>
+</td>
+<td class=''><pre><span  class=''>     * @return Truth value: is integer primal or not.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_267'/>
+267
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_267'></a>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_268'/>
+268
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_268'></a>
+</td>
+<td class=''><pre><span  class=''>    public boolean sieveErastothens(long integer) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_269'/>
+269
+</td>
+<td class='uncertain'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_269'>3</a>
+</td>
+<td class='covered'><pre><span  class='uncertain'>        for (int i = 2; i &#60;= Math.sqrt(integer); i++) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_270'/>
+270
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_270'>3</a>
+</td>
+<td class='covered'><pre><span  class='killed'>            if (integer % i == 0 &#38;&#38; integer != 2) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_271'/>
+271
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_271'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>                return false;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_272'/>
+272
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_272'></a>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_273'/>
+273
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_273'></a>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_274'/>
+274
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_274'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        return true;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_275'/>
+275
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_275'></a>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2b87581_276'/>
+276
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_276'></a>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b87581_30'>30</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_30'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b87581_31'>31</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_31'/> 
+
+<p class='KILLED'>replaced return of integer sized value with (x == 0 ? 1 : 0) : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b87581_36'>36</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_36'/> 
+
+<p class='KILLED'>Replaced long subtraction with addition : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b87581_38'>38</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_38'/> 
+
+<p class='KILLED'>Replaced long addition with subtraction : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> <p class='KILLED'>negated conditional : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> <p class='SURVIVED'>changed conditional boundary : SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b87581_39'>39</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_39'/> 
+
+<p class='KILLED'>Replaced long modulus with multiplication : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> <p class='KILLED'>negated conditional : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b87581_40'>40</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_40'/> 
+
+<p class='KILLED'>replaced return of integer sized value with (x == 0 ? 1 : 0) : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b87581_44'>44</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_44'/> 
+
+<p class='SURVIVED'>changed conditional boundary : SURVIVED</p> <p class='KILLED'>negated conditional : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b87581_45'>45</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_45'/> 
+
+<p class='KILLED'>replaced return of integer sized value with (x == 0 ? 1 : 0) : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b87581_49'>49</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_49'/> 
+
+<p class='SURVIVED'>Replaced double multiplication with division : SURVIVED</p> <p class='SURVIVED'>Replaced double division with multiplication : SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b87581_56'>56</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_56'/> 
+
+<p class='SURVIVED'>changed conditional boundary : SURVIVED</p> <p class='KILLED'>Changed increment from 1 to -1 : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> <p class='SURVIVED'>negated conditional : SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b87581_65'>65</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_65'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b87581_66'>66</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_66'/> 
+
+<p class='NO_COVERAGE'>replaced return of integer sized value with (x == 0 ? 1 : 0) : NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b87581_71'>71</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_71'/> 
+
+<p class='KILLED'>replaced return of integer sized value with (x == 0 ? 1 : 0) : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b87581_83'>83</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_83'/> 
+
+<p class='TIMED_OUT'>Changed increment from 1 to -1 : TIMED_OUT</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b87581_84'>84</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_84'/> 
+
+<p class='TIMED_OUT'>negated conditional : TIMED_OUT</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b87581_87'>87</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_87'/> 
+
+<p class='TIMED_OUT'>negated conditional : TIMED_OUT</p> <p class='SURVIVED'>changed conditional boundary : SURVIVED</p> <p class='KILLED'>Replaced double division with multiplication : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b87581_91'>91</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_91'/> 
+
+<p class='KILLED'>replaced return of long value with value + 1 for fp/utils/PrimeTools::findTheSmallestR : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b87581_105'>105</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_105'/> 
+
+<p class='TIMED_OUT'>negated conditional : TIMED_OUT</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b87581_106'>106</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_106'/> 
+
+<p class='KILLED'>replaced return of long value with value + 1 for fp/utils/PrimeTools::multiplicativeOrd : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b87581_108'>108</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_108'/> 
+
+<p class='TIMED_OUT'>Replaced long addition with subtraction : TIMED_OUT</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b87581_121'>121</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_121'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b87581_122'>122</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_122'/> 
+
+<p class='KILLED'>replaced return of integer sized value with (x == 0 ? 1 : 0) : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b87581_125'>125</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_125'/> 
+
+<p class='SURVIVED'>changed conditional boundary : SURVIVED</p> <p class='TIMED_OUT'>negated conditional : TIMED_OUT</p> <p class='KILLED'>Replaced double addition with subtraction : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> <p class='KILLED'>Changed increment from 1 to -1 : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b87581_126'>126</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_126'/> 
+
+<p class='KILLED'>Replaced double division with multiplication : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b87581_128'>128</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_128'/> 
+
+<p class='KILLED'>Replaced double subtraction with addition : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b87581_129'>129</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_129'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> <p class='SURVIVED'>changed conditional boundary : SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b87581_130'>130</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_130'/> 
+
+<p class='KILLED'>replaced return of integer sized value with (x == 0 ? 1 : 0) : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b87581_134'>134</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_134'/> 
+
+<p class='KILLED'>replaced return of integer sized value with (x == 0 ? 1 : 0) : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b87581_146'>146</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_146'/> 
+
+<p class='TIMED_OUT'>negated conditional : TIMED_OUT</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b87581_147'>147</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_147'/> 
+
+<p class='KILLED'>replaced return of long value with value + 1 for fp/utils/PrimeTools::modularExponentiation : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b87581_151'>151</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_151'/> 
+
+<p class='TIMED_OUT'>Replaced long addition with subtraction : TIMED_OUT</p> <p class='TIMED_OUT'>negated conditional : TIMED_OUT</p> <p class='TIMED_OUT'>changed conditional boundary : TIMED_OUT</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b87581_152'>152</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_152'/> 
+
+<p class='TIMED_OUT'>Replaced long multiplication with division : TIMED_OUT</p> <p class='TIMED_OUT'>Replaced long modulus with multiplication : TIMED_OUT</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b87581_155'>155</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_155'/> 
+
+<p class='TIMED_OUT'>replaced return of long value with value + 1 for fp/utils/PrimeTools::modularExponentiation : TIMED_OUT</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b87581_168'>168</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_168'/> 
+
+<p class='TIMED_OUT'>negated conditional : TIMED_OUT</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b87581_170'>170</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_170'/> 
+
+<p class='TIMED_OUT'>Replaced long modulus with multiplication : TIMED_OUT</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b87581_173'>173</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_173'/> 
+
+<p class='TIMED_OUT'>replaced return of long value with value + 1 for fp/utils/PrimeTools::gcd : TIMED_OUT</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b87581_185'>185</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_185'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b87581_186'>186</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_186'/> 
+
+<p class='KILLED'>replaced return of long value with value + 1 for fp/utils/PrimeTools::binaryGcd : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b87581_189'>189</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_189'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b87581_190'>190</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_190'/> 
+
+<p class='NO_COVERAGE'>replaced return of long value with value + 1 for fp/utils/PrimeTools::binaryGcd : NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b87581_193'>193</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_193'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b87581_194'>194</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_194'/> 
+
+<p class='NO_COVERAGE'>replaced return of long value with value + 1 for fp/utils/PrimeTools::binaryGcd : NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b87581_197'>197</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_197'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> <p class='KILLED'>Replaced bitwise AND with OR : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> <p class='KILLED'>Replaced XOR with AND : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b87581_198'>198</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_198'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> <p class='KILLED'>Replaced bitwise AND with OR : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b87581_199'>199</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_199'/> 
+
+<p class='KILLED'>replaced return of long value with value + 1 for fp/utils/PrimeTools::binaryGcd : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> <p class='KILLED'>Replaced Shift Right with Shift Left : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b87581_201'>201</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_201'/> 
+
+<p class='KILLED'>Replaced Shift Left with Shift Right : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> <p class='KILLED'>Replaced Shift Right with Shift Left : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> <p class='KILLED'>replaced return of long value with value + 1 for fp/utils/PrimeTools::binaryGcd : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> <p class='KILLED'>Replaced Shift Right with Shift Left : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b87581_205'>205</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_205'/> 
+
+<p class='KILLED'>Replaced XOR with AND : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> <p class='KILLED'>Replaced bitwise AND with OR : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> <p class='KILLED'>negated conditional : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b87581_206'>206</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_206'/> 
+
+<p class='KILLED'>replaced return of long value with value + 1 for fp/utils/PrimeTools::binaryGcd : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> <p class='KILLED'>Replaced Shift Right with Shift Left : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b87581_209'>209</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_209'/> 
+
+<p class='SURVIVED'>changed conditional boundary : SURVIVED</p> <p class='KILLED'>negated conditional : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b87581_210'>210</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_210'/> 
+
+<p class='SURVIVED'>Replaced Shift Right with Shift Left : SURVIVED</p> <p class='KILLED'>replaced return of long value with value + 1 for fp/utils/PrimeTools::binaryGcd : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> <p class='SURVIVED'>Replaced long subtraction with addition : SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b87581_213'>213</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_213'/> 
+
+<p class='SURVIVED'>Replaced long subtraction with addition : SURVIVED</p> <p class='SURVIVED'>Replaced Shift Right with Shift Left : SURVIVED</p> <p class='KILLED'>replaced return of long value with value + 1 for fp/utils/PrimeTools::binaryGcd : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b87581_226'>226</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_226'/> 
+
+<p class='TIMED_OUT'>negated conditional : TIMED_OUT</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b87581_227'>227</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_227'/> 
+
+<p class='TIMED_OUT'>replaced return of integer sized value with (x == 0 ? 1 : 0) : TIMED_OUT</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b87581_229'>229</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_229'/> 
+
+<p class='TIMED_OUT'>replaced return of integer sized value with (x == 0 ? 1 : 0) : TIMED_OUT</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b87581_246'>246</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_246'/> 
+
+<p class='TIMED_OUT'>Changed increment from 1 to -1 : TIMED_OUT</p> <p class='KILLED'>changed conditional boundary : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> <p class='KILLED'>negated conditional : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> <p class='TIMED_OUT'>Replaced integer multiplication with division : TIMED_OUT</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b87581_247'>247</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_247'/> 
+
+<p class='KILLED'>Replaced long modulus with multiplication : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> <p class='KILLED'>negated conditional : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b87581_248'>248</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_248'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> <p class='KILLED'>Replaced long modulus with multiplication : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b87581_249'>249</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_249'/> 
+
+<p class='KILLED'>Replaced long division with multiplication : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b87581_251'>251</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_251'/> 
+
+<p class='KILLED'>Replaced long subtraction with addition : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> <p class='KILLED'>Replaced long division with multiplication : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b87581_255'>255</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_255'/> 
+
+<p class='KILLED'>changed conditional boundary : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> <p class='KILLED'>negated conditional : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b87581_256'>256</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_256'/> 
+
+<p class='KILLED'>Replaced long subtraction with addition : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> <p class='KILLED'>Replaced long division with multiplication : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b87581_259'>259</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_259'/> 
+
+<p class='KILLED'>replaced return of long value with value + 1 for fp/utils/PrimeTools::phi : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b87581_269'>269</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_269'/> 
+
+<p class='TIMED_OUT'>negated conditional : TIMED_OUT</p> <p class='KILLED'>changed conditional boundary : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> <p class='KILLED'>Changed increment from 1 to -1 : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b87581_270'>270</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_270'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> <p class='KILLED'>Replaced long modulus with multiplication : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> <p class='KILLED'>negated conditional : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b87581_271'>271</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_271'/> 
+
+<p class='KILLED'>replaced return of integer sized value with (x == 0 ? 1 : 0) : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2b87581_274'>274</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2b87581_274'/> 
+
+<p class='KILLED'>replaced return of integer sized value with (x == 0 ? 1 : 0) : KILLED -> fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+<li class='mutator'>RETURN_VALS_MUTATOR</li>
+<li class='mutator'>MATH_MUTATOR</li>
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>fp.utils.PrimeToolsTest.fp.utils.PrimeToolsTest (1411 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 0.30
+
+</body>
+</html>
