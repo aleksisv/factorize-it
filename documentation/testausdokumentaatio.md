@@ -35,6 +35,9 @@ Mutaatiokattavuus on niin ikään korkea, noin 90%.
 #### PrimeTools-luokka
 1. phi(n) laskee arvon phi(100 000 000 000 000L) 50000 nanosekunnissa.
 2. areCoprime(311343244232L, 33321332134214L); lasketaan alle 20000 nanosekunnissa.
+3. isPerfectPower(1234232135) lasketaan alle 70000 nanosekunnissa.
+4. findTheSmallestR(21345567342234L) laskemiseen menee lähes kaksi sekuntia. --> Tätä voisi koittaa optimoida lisää projektin jälkeen.
+5. multiplicativeOrd(15824991, 1634800750) laskemiseen menee kaksi sekuntia. --> Tätä voisi koittaa optimoida lisää projektin jälkeen.
 
 #### Polynomial-luokka
 1. exponentiation(long n) on aikaavaativa operaatio. Esimerkiksi laskun (x+4)^32 suorittaminen tällä metodilla kestää noin 214 397 nanosekuntia. Laskun (x+4)^320 suorittaminen kestää 10 546 885 nanosekuntia, eli noin 50-kertaisesti, vaikka eksponentti on kerrottu kymmenellä.

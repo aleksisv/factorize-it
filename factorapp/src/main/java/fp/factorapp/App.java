@@ -17,5 +17,6 @@ public class App {
     public static void main(String[] args) throws IOException {
         GraphicalPrimeTool gpt = new GraphicalPrimeTool();
         gpt.run();
+        
     }
 }
